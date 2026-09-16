@@ -1,0 +1,46 @@
+import React, { useRef } from 'react';
+import ComplaintForm from './components/ComplaintForm';
+import AIVOACopilot from './components/AIVOACopilot';
+import QMSLedger from './components/QMSLedger';
+import NotificationBanner from './components/NotificationBanner';
+
+export default function App() {
+  const ledgerRef = useRef(null);
+
+  const scrollToLedger = () => {
+    ledgerRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-100/70 font-sans text-slate-900 flex flex-col">
+      
+      {/* MAIN TOP SECTION: EXACT SPLIT VIEW MATCHING DEMO SCREENSHOT */}
+      <div className="w-full max-w-[1720px] mx-auto p-4 sm:p-6 lg:p-7 flex-1 flex flex-col">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch flex-1 min-h-[820px]">
+          
+          {/* LEFT PANEL: LOG CUSTOMER COMPLAINT FORM */}
+          <div className="lg:col-span-7 flex flex-col">
+            <ComplaintForm onCommitted={scrollToLedger} />
+          </div>
+
+          {/* RIGHT PANEL: AIVOA COPILOT STANDALONE CHATBOT */}
+          <div className="lg:col-span-5 flex flex-col">
+            <AIVOACopilot />
+          </div>
+
+        </div>
+      </div>
+
+      {/* LASTLY: AUDITED QMS LEDGER (AT THE BOTTOM AS REQUESTED) */}
+      <div ref={ledgerRef} className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-7 pb-12 pt-6">
+        <div className="border-t border-slate-300 pt-8">
+          <QMSLedger />
+        </div>
+      </div>
+
+      {/* Toast Notifications */}
+      <NotificationBanner />
+
+    </div>
+  );
+}

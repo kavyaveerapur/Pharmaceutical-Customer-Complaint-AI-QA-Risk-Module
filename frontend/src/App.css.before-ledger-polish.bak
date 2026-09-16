@@ -1,0 +1,2241 @@
+﻿/* =========================================================
+   AIVOA.AI QMS
+   ENTERPRISE AI / PHARMACEUTICAL VISUAL SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   BASIC APP SHELL
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* =========================================================
+   QMS APPLICATION
+   ========================================================= */
+
+.qms-application {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(82, 39, 255, 0.18),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 159, 252, 0.10),
+      transparent 26%
+    ),
+
+    linear-gradient(
+      135deg,
+      #070511 0%,
+      #0c0820 48%,
+      #090616 100%
+    );
+
+  color: #f8fafc;
+
+  overflow: clip;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   ANIMATED GRADIENT WAVES BACKGROUND
+   ========================================================= */
+
+.qms-background {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  overflow: hidden;
+}
+
+
+.qms-background::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 20%,
+      rgba(7, 5, 17, 0.22) 65%,
+      rgba(7, 5, 17, 0.72) 100%
+    );
+}
+
+
+.qms-background::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 5, 17, 0.20),
+      rgba(7, 5, 17, 0.62)
+    );
+}
+
+
+/* =========================================================
+   QMS CONTENT LAYER
+   ========================================================= */
+
+.qms-application-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 100vh;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   HOME BUTTON AREA
+   ========================================================= */
+
+.qms-home-row {
+  width: 100%;
+
+  padding:
+    18px
+    22px
+    8px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================================================
+   BACK TO HOME BUTTON
+   ========================================================= */
+
+.qms-home-button {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 42px;
+
+  padding:
+    0 16px;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.28);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.18),
+      rgba(255, 159, 252, 0.08)
+    );
+
+  color: rgba(255, 255, 255, 0.86);
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 28px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.qms-home-button:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(255, 159, 252, 0.58);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(255, 159, 252, 0.16)
+    );
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 34px
+    rgba(82, 39, 255, 0.24),
+
+    0 0 24px
+    rgba(255, 159, 252, 0.08),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+}
+
+
+.qms-home-button:active {
+  transform:
+    translateY(0);
+}
+
+
+.qms-home-button:focus-visible {
+  outline:
+    2px solid
+    rgba(255, 159, 252, 0.72);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.qms-application header {
+  background:
+    rgba(8, 6, 20, 0.80) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.09) !important;
+
+  box-shadow:
+    0 8px 30px
+    rgba(0, 0, 0, 0.20) !important;
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+}
+
+
+.qms-application header h1,
+.qms-application header .text-slate-900 {
+  color: #ffffff !important;
+}
+
+
+.qms-application header p,
+.qms-application header .text-slate-500 {
+  color:
+    rgba(255, 255, 255, 0.54) !important;
+}
+
+
+.qms-application header .bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.16) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.22) !important;
+
+  color:
+    #ff9ffc !important;
+}
+
+
+.qms-application header nav {
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.09) !important;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04);
+}
+
+
+.qms-application header nav button {
+  color:
+    rgba(255, 255, 255, 0.62) !important;
+
+  transition:
+    all 180ms ease;
+}
+
+
+.qms-application header nav button:hover {
+  color:
+    #ffffff !important;
+
+  background:
+    rgba(255, 255, 255, 0.06) !important;
+}
+
+
+.qms-application header nav button.bg-white {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(255, 159, 252, 0.14)
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.28);
+}
+
+
+.qms-application header > div > div {
+  min-height: 72px;
+}
+
+
+/* =========================================================
+   QMS MAIN AREA
+   ========================================================= */
+
+.qms-main {
+  position: relative;
+
+  width: 100%;
+  max-width: 1740px;
+
+  min-height: calc(100vh - 130px);
+
+  margin:
+    0 auto;
+
+  padding:
+    24px 24px 42px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   INTAKE LAYOUT
+   ========================================================= */
+
+.qms-intake-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.96fr)
+    minmax(0, 1.08fr);
+
+  gap: 24px;
+
+  min-height: 820px;
+}
+
+
+.qms-intake-form-panel,
+.qms-copilot-panel {
+  min-width: 0;
+
+  min-height: 0;
+}
+
+
+/* =========================================================
+   BASE QMS CARDS
+   ========================================================= */
+
+.qms-application .bg-white {
+  background:
+    rgba(14, 11, 30, 0.88) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+
+  color:
+    rgba(255, 255, 255, 0.92);
+}
+
+
+.qms-application .border-slate-200,
+.qms-application .border-slate-200\/80 {
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+}
+
+
+.qms-application .shadow-sm {
+  box-shadow:
+    0 18px 55px
+    rgba(0, 0, 0, 0.24) !important;
+}
+
+
+/* =========================================================
+   COMPLAINT INTAKE PANEL
+   ========================================================= */
+
+.qms-intake-form-panel > div {
+  height: 100%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10) !important;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 15, 37, 0.90),
+      rgba(11, 9, 24, 0.92)
+    ) !important;
+
+  box-shadow:
+    0 24px 70px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* Intake header */
+
+.qms-intake-form-panel > div > div:first-child {
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.qms-intake-form-panel h2 {
+  color:
+    #ffffff !important;
+}
+
+
+.qms-intake-form-panel .text-slate-500 {
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+
+/* =========================================================
+   COPILOT PANEL
+   ========================================================= */
+
+.qms-copilot-panel > div {
+  height: 100%;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.25) !important;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 7, 27, 0.97),
+      rgba(20, 10, 39, 0.95)
+    ) !important;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.38),
+
+    0 0 55px
+    rgba(82, 39, 255, 0.11),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+
+  transform:
+    translateZ(0);
+}
+
+
+/* Copilot top header */
+
+.qms-copilot-panel > div > div:first-child {
+  padding:
+    20px 22px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.15),
+      rgba(255, 159, 252, 0.065)
+    ) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 159, 252, 0.15) !important;
+}
+
+
+.qms-copilot-panel h3 {
+  color:
+    #ffffff !important;
+
+  font-size:
+    17px !important;
+}
+
+
+.qms-copilot-panel .text-slate-500,
+.qms-copilot-panel .text-slate-400 {
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+
+/* =========================================================
+   COPILOT QUICK SAMPLE BUTTONS
+   ========================================================= */
+
+.qms-copilot-panel button {
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+
+.qms-copilot-panel button.bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.14) !important;
+
+  color:
+    #ffb5fc !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.20) !important;
+}
+
+
+.qms-copilot-panel button.bg-indigo-50:hover {
+  background:
+    rgba(82, 39, 255, 0.28) !important;
+
+  color:
+    #ffffff !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.42) !important;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(82, 39, 255, 0.18);
+}
+
+
+.qms-copilot-panel button.bg-slate-100 {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  color:
+    rgba(255, 255, 255, 0.54) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+}
+
+
+.qms-copilot-panel button.bg-slate-100:hover {
+  background:
+    rgba(255, 255, 255, 0.09) !important;
+
+  color:
+    #ffffff !important;
+}
+
+
+/* =========================================================
+   COPILOT CHAT AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:nth-child(2) {
+  padding:
+    24px !important;
+
+  min-height:
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 5, 17, 0.58),
+      rgba(13, 8, 28, 0.74)
+    ) !important;
+
+  scrollbar-width: thin;
+}
+
+
+.qms-copilot-panel > div > div:nth-child(2)::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.qms-copilot-panel > div > div:nth-child(2)::-webkit-scrollbar-track {
+  background:
+    transparent;
+}
+
+
+.qms-copilot-panel > div > div:nth-child(2)::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 159, 252, 0.25);
+
+  border-radius:
+    999px;
+}
+
+
+/* =========================================================
+   COPILOT CHAT BUBBLES
+   ========================================================= */
+
+.qms-copilot-panel .bg-indigo-600 {
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #704dff
+    ) !important;
+
+  box-shadow:
+    0 10px 28px
+    rgba(82, 39, 255, 0.22) !important;
+}
+
+
+.qms-copilot-panel .bg-white {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+
+  color:
+    rgba(255, 255, 255, 0.86) !important;
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.14) !important;
+}
+
+
+.qms-copilot-panel .bg-rose-50 {
+  background:
+    rgba(244, 63, 94, 0.10) !important;
+
+  border-color:
+    rgba(251, 113, 133, 0.18) !important;
+}
+
+
+/* =========================================================
+   COPILOT MESSAGE SPACING
+   ========================================================= */
+
+.qms-copilot-panel .space-y-4 > * + * {
+  margin-top:
+    18px !important;
+}
+
+
+.qms-copilot-panel .space-y-3 > * + * {
+  margin-top:
+    12px !important;
+}
+
+
+/* =========================================================
+   COPILOT USER / AI AVATARS
+   ========================================================= */
+
+.qms-copilot-panel .bg-slate-200 {
+  background:
+    rgba(255, 255, 255, 0.10) !important;
+
+  color:
+    rgba(255, 255, 255, 0.70) !important;
+}
+
+
+.qms-copilot-panel .bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.15) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.16) !important;
+}
+
+
+/* =========================================================
+   COPILOT PROCESSING MESSAGE
+   ========================================================= */
+
+.qms-copilot-panel .animate-pulse {
+  background:
+    rgba(82, 39, 255, 0.09) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.16) !important;
+
+  color:
+    rgba(255, 255, 255, 0.62) !important;
+}
+
+
+/* =========================================================
+   COPILOT INPUT / UPLOAD AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child {
+  padding:
+    18px 20px 16px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16, 10, 34, 0.96),
+      rgba(9, 7, 22, 0.98)
+    ) !important;
+
+  border-top:
+    1px solid
+    rgba(255, 159, 252, 0.14) !important;
+}
+
+
+/* Main message composer */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child {
+  min-height:
+    54px;
+
+  padding:
+    5px !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.20) !important;
+
+  border-radius:
+    15px !important;
+
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05),
+
+    0 8px 28px
+    rgba(0, 0, 0, 0.18) !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child:focus-within {
+  border-color:
+    rgba(255, 159, 252, 0.48) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(82, 39, 255, 0.14),
+
+    0 10px 32px
+    rgba(82, 39, 255, 0.15) !important;
+}
+
+
+/* Attachment button */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:first-of-type {
+  width:
+    44px;
+
+  height:
+    44px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    11px;
+
+  color:
+    rgba(255, 255, 255, 0.56) !important;
+
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:first-of-type:hover {
+  color:
+    #ff9ffc !important;
+
+  background:
+    rgba(82, 39, 255, 0.20) !important;
+
+  transform:
+    scale(1.04);
+
+  box-shadow:
+    0 6px 20px
+    rgba(82, 39, 255, 0.18);
+}
+
+
+/* Text input */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child input[type="text"] {
+  height:
+    44px;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    13px !important;
+
+  padding:
+    0 12px !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child input[type="text"]::placeholder {
+  color:
+    rgba(255, 255, 255, 0.40) !important;
+}
+
+
+/* Send button */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:last-child {
+  width:
+    44px;
+
+  height:
+    44px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #754cff
+    ) !important;
+
+  box-shadow:
+    0 8px 24px
+    rgba(82, 39, 255, 0.25);
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:last-child:hover {
+  transform:
+    translateY(-1px)
+    scale(1.03);
+
+  box-shadow:
+    0 10px 28px
+    rgba(82, 39, 255, 0.38);
+}
+
+
+/* Powered by LangGraph */
+
+.qms-copilot-panel > div > div:last-child span {
+  color:
+    rgba(255, 255, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   QMS INPUTS
+   ========================================================= */
+
+.qms-application .qms-input {
+  min-height:
+    46px;
+
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.13) !important;
+
+  color:
+    #ffffff !important;
+
+  border-radius:
+    10px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+
+.qms-application .qms-input:focus {
+  background:
+    rgba(255, 255, 255, 0.075) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.48) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(82, 39, 255, 0.13) !important;
+}
+
+
+.qms-application .qms-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.36) !important;
+}
+
+
+.qms-application .qms-input option {
+  background:
+    #151029;
+
+  color:
+    #ffffff;
+}
+
+
+/* =========================================================
+   QMS LABELS
+   ========================================================= */
+
+.qms-application .qms-label {
+  color:
+    rgba(255, 255, 255, 0.58) !important;
+
+  margin-bottom:
+    7px;
+}
+
+
+.qms-application .qms-section-title {
+  color:
+    rgba(255, 159, 252, 0.78) !important;
+
+  margin-top:
+    1.4rem;
+}
+
+
+/* =========================================================
+   AI ASSESSMENT CARD
+   ========================================================= */
+
+.qms-application .qms-ai-assessment-card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.15),
+      rgba(255, 159, 252, 0.055)
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.18) !important;
+
+  box-shadow:
+    0 12px 38px
+    rgba(82, 39, 255, 0.10);
+}
+
+
+.qms-application .qms-ai-assessment-card h3 {
+  color:
+    #ffffff !important;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTONS
+   ========================================================= */
+
+.qms-application .btn-primary {
+  min-height:
+    48px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff 0%,
+      #6740ff 55%,
+      #8b62ff 100%
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.28);
+
+  border-radius:
+    12px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(82, 39, 255, 0.25),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.14);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+
+.qms-application .btn-primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #633cff 0%,
+      #7955ff 55%,
+      #a06eff 100%
+    ) !important;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 16px 38px
+    rgba(82, 39, 255, 0.34),
+
+    0 0 24px
+    rgba(255, 159, 252, 0.10);
+
+  filter:
+    brightness(1.05);
+}
+
+
+.qms-application .btn-primary:active {
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.qms-application .badge-ready {
+  background:
+    rgba(16, 185, 129, 0.12) !important;
+
+  color:
+    #6ee7b7 !important;
+
+  border-color:
+    rgba(52, 211, 153, 0.22) !important;
+}
+
+
+.qms-application .badge-draft {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  color:
+    rgba(255, 255, 255, 0.50) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+}
+
+
+/* =========================================================
+   LEDGER + INSIGHTS DASHBOARDS
+   ========================================================= */
+
+.qms-dashboard-page {
+  width:
+    100%;
+
+  min-height:
+    calc(100vh - 150px);
+}
+
+
+.qms-dashboard-page > div {
+  min-height:
+    100%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 12, 32, 0.91),
+      rgba(10, 8, 23, 0.94)
+    ) !important;
+
+  box-shadow:
+    0 26px 80px
+    rgba(0, 0, 0, 0.28),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================================
+   LEDGER HEADER
+   ========================================================= */
+
+.qms-dashboard-page h2 {
+  color:
+    #ffffff !important;
+}
+
+
+.qms-dashboard-page .text-slate-500 {
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+
+.qms-dashboard-page .bg-slate-50,
+.qms-dashboard-page .bg-slate-50\/50,
+.qms-dashboard-page .bg-slate-50\/70 {
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+}
+
+
+.qms-dashboard-page .text-slate-700,
+.qms-dashboard-page .text-slate-800,
+.qms-dashboard-page .text-slate-900 {
+  color:
+    rgba(255, 255, 255, 0.82) !important;
+}
+
+
+/* =========================================================
+   LEDGER TABLE
+   ========================================================= */
+
+.qms-dashboard-page table {
+  color:
+    rgba(255, 255, 255, 0.78);
+}
+
+
+.qms-dashboard-page thead tr {
+  background:
+    rgba(82, 39, 255, 0.08) !important;
+
+  color:
+    rgba(255, 159, 252, 0.72) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.qms-dashboard-page tbody tr {
+  border-color:
+    rgba(255, 255, 255, 0.06) !important;
+
+  transition:
+    background 180ms ease;
+}
+
+
+.qms-dashboard-page tbody tr:hover {
+  background:
+    rgba(82, 39, 255, 0.07) !important;
+}
+
+
+.qms-dashboard-page tbody td {
+  color:
+    rgba(255, 255, 255, 0.74);
+}
+
+
+.qms-dashboard-page tbody td.font-bold,
+.qms-dashboard-page tbody td.font-semibold {
+  color:
+    rgba(255, 255, 255, 0.90);
+}
+
+
+/* Ledger status select */
+
+.qms-dashboard-page select {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.12) !important;
+
+  color:
+    #ffffff !important;
+}
+
+
+.qms-dashboard-page select option {
+  background:
+    #151029;
+
+  color:
+    #ffffff;
+}
+
+
+/* Ledger buttons */
+
+.qms-dashboard-page button.bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.13) !important;
+
+  color:
+    #ff9ffc !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.20) !important;
+}
+
+
+.qms-dashboard-page button.bg-indigo-50:hover {
+  background:
+    rgba(82, 39, 255, 0.24) !important;
+
+  color:
+    #ffffff !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.36) !important;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   INSIGHTS KPI CARDS
+   ========================================================= */
+
+.qms-dashboard-page .bg-rose-50\/70 {
+  background:
+    rgba(244, 63, 94, 0.085) !important;
+
+  border-color:
+    rgba(251, 113, 133, 0.20) !important;
+}
+
+
+.qms-dashboard-page .bg-indigo-50\/70,
+.qms-dashboard-page .bg-indigo-50\/50 {
+  background:
+    rgba(82, 39, 255, 0.09) !important;
+
+  border-color:
+    rgba(129, 140, 248, 0.18) !important;
+}
+
+
+.qms-dashboard-page .bg-emerald-50\/70 {
+  background:
+    rgba(16, 185, 129, 0.075) !important;
+
+  border-color:
+    rgba(52, 211, 153, 0.18) !important;
+}
+
+
+/* KPI number */
+
+.qms-dashboard-page .text-2xl {
+  color:
+    #ffffff !important;
+}
+
+
+/* =========================================================
+   INSIGHTS ANALYTICS CARDS
+   ========================================================= */
+
+.qms-dashboard-page .bg-slate-50\/70 {
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.qms-dashboard-page .bg-indigo-50\/50 {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.12),
+      rgba(255, 159, 252, 0.04)
+    ) !important;
+}
+
+
+.qms-dashboard-page h3 {
+  color:
+    rgba(255, 255, 255, 0.88) !important;
+}
+
+
+.qms-dashboard-page li,
+.qms-dashboard-page p {
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   COMPLAINT DETAIL MODAL
+   ========================================================= */
+
+.qms-application .fixed.inset-0 {
+  background:
+    rgba(3, 2, 10, 0.78) !important;
+
+  backdrop-filter:
+    blur(14px);
+}
+
+
+.qms-application .fixed.inset-0 > div {
+  background:
+    linear-gradient(
+      145deg,
+      #15102d,
+      #0d0a20
+    ) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.18) !important;
+
+  box-shadow:
+    0 30px 100px
+    rgba(0, 0, 0, 0.55) !important;
+}
+
+
+/* =========================================================
+   NOTIFICATION BANNER
+   ========================================================= */
+
+.qms-application .fixed.bottom-6 {
+  filter:
+    drop-shadow(
+      0 15px 35px
+      rgba(0, 0, 0, 0.30)
+    );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .qms-intake-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  }
+
+}
+
+
+@media (max-width: 1024px) {
+
+  .qms-main {
+    padding:
+      18px 18px 32px;
+  }
+
+  .qms-intake-grid {
+    grid-template-columns:
+      1fr;
+
+    min-height:
+      auto;
+  }
+
+  .qms-intake-form-panel,
+  .qms-copilot-panel {
+    min-height:
+      760px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .qms-home-row {
+    padding:
+      12px
+      14px
+      6px;
+  }
+
+  .qms-main {
+    padding:
+      14px
+      12px
+      28px;
+  }
+
+  .qms-intake-grid {
+    gap:
+      16px;
+  }
+
+  .qms-intake-form-panel,
+  .qms-copilot-panel {
+    min-height:
+      680px;
+  }
+
+  .qms-copilot-panel > div > div:nth-child(2) {
+    padding:
+      18px !important;
+  }
+
+  .qms-copilot-panel > div > div:last-child {
+    padding:
+      14px !important;
+  }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-home-button,
+  .qms-application button,
+  .qms-application .btn-primary {
+    transition:
+      none !important;
+  }
+
+}
+/* =========================================================
+   AIVOA.AI COPILOT — VISUAL EMPHASIS
+   ========================================================= */
+
+/*
+ * Main Copilot container
+ *
+ * Stronger separation from the QMS background.
+ */
+
+.qms-copilot-panel > div {
+  position: relative;
+
+  height: 100%;
+
+  border: 1px solid
+    rgba(255, 159, 252, 0.52) !important;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 7, 31, 0.985),
+      rgba(25, 10, 48, 0.975)
+    ) !important;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.48),
+
+    0 0 45px
+    rgba(82, 39, 255, 0.20),
+
+    0 0 85px
+    rgba(255, 159, 252, 0.08),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.10);
+
+  overflow: hidden;
+
+  transform:
+    translateZ(0);
+
+  isolation: isolate;
+
+  animation:
+    copilot-border-glow
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+/*
+ * Animated outer glow.
+ *
+ * This makes the Copilot visually "alive" without
+ * becoming distracting.
+ */
+
+.qms-copilot-panel > div::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 159, 252, 0.16),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(82, 39, 255, 0.18),
+      transparent 38%
+    );
+
+  opacity: 0.85;
+
+  animation:
+    copilot-atmosphere
+    6s
+    ease-in-out
+    infinite;
+}
+
+
+/*
+ * Animated border glow.
+ */
+
+@keyframes copilot-border-glow {
+
+  0%,
+  100% {
+    border-color:
+      rgba(255, 159, 252, 0.38);
+
+    box-shadow:
+      0 30px 90px
+      rgba(0, 0, 0, 0.48),
+
+      0 0 38px
+      rgba(82, 39, 255, 0.16),
+
+      0 0 70px
+      rgba(255, 159, 252, 0.05),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.10);
+  }
+
+  50% {
+    border-color:
+      rgba(255, 159, 252, 0.72);
+
+    box-shadow:
+      0 30px 90px
+      rgba(0, 0, 0, 0.48),
+
+      0 0 55px
+      rgba(82, 39, 255, 0.25),
+
+      0 0 100px
+      rgba(255, 159, 252, 0.11),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.14);
+  }
+
+}
+
+
+/*
+ * Background atmospheric animation.
+ */
+
+@keyframes copilot-atmosphere {
+
+  0%,
+  100% {
+    transform:
+      scale(1);
+
+    opacity:
+      0.65;
+  }
+
+  50% {
+    transform:
+      scale(1.08);
+
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =========================================================
+   COPILOT HEADER
+   ========================================================= */
+
+.qms-copilot-panel > div > div:first-child {
+  position: relative;
+
+  min-height:
+    82px;
+
+  padding:
+    19px 22px !important;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(110, 55, 255, 0.18) 45%,
+      rgba(255, 159, 252, 0.16)
+    ) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 159, 252, 0.30) !important;
+
+  box-shadow:
+    0 10px 32px
+    rgba(82, 39, 255, 0.14),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+
+  overflow:
+    hidden;
+}
+
+
+/*
+ * Moving light across the header.
+ */
+
+.qms-copilot-panel > div > div:first-child::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -35%;
+
+  width: 28%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.13),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  animation:
+    copilot-header-shimmer
+    4.5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes copilot-header-shimmer {
+
+  0% {
+    left:
+      -35%;
+  }
+
+  55%,
+  100% {
+    left:
+      120%;
+  }
+
+}
+
+
+/* =========================================================
+   COPILOT TITLE
+   ========================================================= */
+
+.qms-copilot-panel h3 {
+  position: relative;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    18px !important;
+
+  font-weight:
+    750 !important;
+
+  letter-spacing:
+    -0.02em;
+
+  text-shadow:
+    0 0 20px
+    rgba(255, 159, 252, 0.22);
+}
+
+
+/*
+ * Make Copilot subtitle clearer.
+ */
+
+.qms-copilot-panel > div > div:first-child
+.text-slate-500,
+.qms-copilot-panel > div > div:first-child
+.text-slate-400 {
+  color:
+    rgba(255, 255, 255, 0.66) !important;
+}
+
+
+/* =========================================================
+   AI STATUS / ICON AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:first-child svg {
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(255, 159, 252, 0.50)
+    );
+}
+
+
+/* =========================================================
+   QUICK ACTION AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:first-child
++ div {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 7, 23, 0.94),
+      rgba(13, 8, 28, 0.92)
+    ) !important;
+}
+
+
+/* =========================================================
+   COPILOT CHAT AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:nth-child(2) {
+  padding:
+    25px !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(82, 39, 255, 0.075),
+      transparent 35%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(5, 4, 14, 0.82),
+      rgba(13, 8, 28, 0.90)
+    ) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 159, 252, 0.10);
+}
+
+
+/*
+ * Add subtle separator around chat messages.
+ */
+
+.qms-copilot-panel .space-y-4 > * + * {
+  margin-top:
+    20px !important;
+}
+
+
+/* =========================================================
+   AI MESSAGE BUBBLES
+   ========================================================= */
+
+.qms-copilot-panel .bg-white {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.045)
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12) !important;
+
+  color:
+    rgba(255, 255, 255, 0.90) !important;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.20) !important;
+}
+
+
+/* User message */
+
+.qms-copilot-panel .bg-indigo-600 {
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #7147ff,
+      #815cff
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.25);
+
+  box-shadow:
+    0 10px 30px
+    rgba(82, 39, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   COMPOSER
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child {
+  padding:
+    19px 20px 17px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 10, 40, 0.98),
+      rgba(8, 6, 20, 0.99)
+    ) !important;
+
+  border-top:
+    1px solid
+    rgba(255, 159, 252, 0.22) !important;
+
+  box-shadow:
+    0 -12px 35px
+    rgba(82, 39, 255, 0.08);
+}
+
+
+/*
+ * Larger, stronger message input.
+ */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child {
+  min-height:
+    58px !important;
+
+  padding:
+    6px !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.30) !important;
+
+  border-radius:
+    16px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(82, 39, 255, 0.065)
+    ) !important;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.07);
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child:focus-within {
+  border-color:
+    rgba(255, 159, 252, 0.68) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(82, 39, 255, 0.11)
+    ) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(82, 39, 255, 0.15),
+
+    0 12px 36px
+    rgba(82, 39, 255, 0.20),
+
+    0 0 25px
+    rgba(255, 159, 252, 0.08);
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:first-of-type {
+  width:
+    46px !important;
+
+  height:
+    46px !important;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    12px;
+
+  color:
+    rgba(255, 255, 255, 0.68) !important;
+
+  background:
+    rgba(82, 39, 255, 0.12) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.16);
+
+  transition:
+    all 180ms ease;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:first-of-type:hover {
+  color:
+    #ffffff !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.38),
+      rgba(255, 159, 252, 0.16)
+    ) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.50);
+
+  transform:
+    translateY(-1px)
+    scale(1.04);
+
+  box-shadow:
+    0 8px 24px
+    rgba(82, 39, 255, 0.25),
+
+    0 0 18px
+    rgba(255, 159, 252, 0.08);
+}
+
+
+/* =========================================================
+   TEXT INPUT
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+input[type="text"] {
+  height:
+    46px !important;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    13.5px !important;
+
+  padding:
+    0 13px !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+input[type="text"]::placeholder {
+  color:
+    rgba(255, 255, 255, 0.43) !important;
+}
+
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:last-child {
+  width:
+    46px !important;
+
+  height:
+    46px !important;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #744bff,
+      #8c61ff
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.32);
+
+  box-shadow:
+    0 9px 26px
+    rgba(82, 39, 255, 0.30);
+
+  transition:
+    all 180ms ease;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:last-child:hover {
+  transform:
+    translateY(-2px)
+    scale(1.04);
+
+  box-shadow:
+    0 13px 32px
+    rgba(82, 39, 255, 0.42),
+
+    0 0 20px
+    rgba(255, 159, 252, 0.12);
+}
+
+
+/* =========================================================
+   COPILOT FOOTER
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+span {
+  color:
+    rgba(255, 255, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .qms-copilot-panel > div {
+    border-radius:
+      18px;
+  }
+
+  .qms-copilot-panel > div > div:first-child {
+    min-height:
+      74px;
+
+    padding:
+      16px !important;
+  }
+
+  .qms-copilot-panel > div > div:nth-child(2) {
+    padding:
+      18px !important;
+  }
+
+  .qms-copilot-panel > div > div:last-child {
+    padding:
+      15px !important;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-copilot-panel > div,
+  .qms-copilot-panel > div::before,
+  .qms-copilot-panel > div > div:first-child::after {
+    animation:
+      none !important;
+  }
+
+}

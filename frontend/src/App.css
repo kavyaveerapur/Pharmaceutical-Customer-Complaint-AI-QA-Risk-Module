@@ -1,0 +1,6607 @@
+﻿/* =========================================================
+   AIVOA.AI QMS
+   ENTERPRISE AI / PHARMACEUTICAL VISUAL SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   BASIC APP SHELL
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* =========================================================
+   QMS APPLICATION
+   ========================================================= */
+
+.qms-application {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(82, 39, 255, 0.18),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 159, 252, 0.10),
+      transparent 26%
+    ),
+
+    linear-gradient(
+      135deg,
+      #070511 0%,
+      #0c0820 48%,
+      #090616 100%
+    );
+
+  color: #f8fafc;
+
+  overflow: clip;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   ANIMATED GRADIENT WAVES BACKGROUND
+   ========================================================= */
+
+.qms-background {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  overflow: hidden;
+}
+
+
+.qms-background::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 20%,
+      rgba(7, 5, 17, 0.22) 65%,
+      rgba(7, 5, 17, 0.72) 100%
+    );
+}
+
+
+.qms-background::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 5, 17, 0.20),
+      rgba(7, 5, 17, 0.62)
+    );
+}
+
+
+/* =========================================================
+   QMS CONTENT LAYER
+   ========================================================= */
+
+.qms-application-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 100vh;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   HOME BUTTON AREA
+   ========================================================= */
+
+.qms-home-row {
+  width: 100%;
+
+  padding:
+    18px
+    22px
+    8px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* =========================================================
+   BACK TO HOME BUTTON
+   ========================================================= */
+
+.qms-home-button {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 42px;
+
+  padding:
+    0 16px;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.28);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.18),
+      rgba(255, 159, 252, 0.08)
+    );
+
+  color: rgba(255, 255, 255, 0.86);
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 28px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.qms-home-button:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(255, 159, 252, 0.58);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(255, 159, 252, 0.16)
+    );
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 34px
+    rgba(82, 39, 255, 0.24),
+
+    0 0 24px
+    rgba(255, 159, 252, 0.08),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+}
+
+
+.qms-home-button:active {
+  transform:
+    translateY(0);
+}
+
+
+.qms-home-button:focus-visible {
+  outline:
+    2px solid
+    rgba(255, 159, 252, 0.72);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.qms-application header {
+  background:
+    rgba(8, 6, 20, 0.80) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.09) !important;
+
+  box-shadow:
+    0 8px 30px
+    rgba(0, 0, 0, 0.20) !important;
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+}
+
+
+.qms-application header h1,
+.qms-application header .text-slate-900 {
+  color: #ffffff !important;
+}
+
+
+.qms-application header p,
+.qms-application header .text-slate-500 {
+  color:
+    rgba(255, 255, 255, 0.54) !important;
+}
+
+
+.qms-application header .bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.16) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.22) !important;
+
+  color:
+    #ff9ffc !important;
+}
+
+
+.qms-application header nav {
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.09) !important;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04);
+}
+
+
+.qms-application header nav button {
+  color:
+    rgba(255, 255, 255, 0.62) !important;
+
+  transition:
+    all 180ms ease;
+}
+
+
+.qms-application header nav button:hover {
+  color:
+    #ffffff !important;
+
+  background:
+    rgba(255, 255, 255, 0.06) !important;
+}
+
+
+.qms-application header nav button.bg-white {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(255, 159, 252, 0.14)
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.28);
+}
+
+
+.qms-application header > div > div {
+  min-height: 72px;
+}
+
+
+/* =========================================================
+   QMS MAIN AREA
+   ========================================================= */
+
+.qms-main {
+  position: relative;
+
+  width: 100%;
+  max-width: 1740px;
+
+  min-height: calc(100vh - 130px);
+
+  margin:
+    0 auto;
+
+  padding:
+    24px 24px 42px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   INTAKE LAYOUT
+   ========================================================= */
+
+.qms-intake-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.96fr)
+    minmax(0, 1.08fr);
+
+  gap: 24px;
+
+  min-height: 820px;
+}
+
+
+.qms-intake-form-panel,
+.qms-copilot-panel {
+  min-width: 0;
+
+  min-height: 0;
+}
+
+
+/* =========================================================
+   BASE QMS CARDS
+   ========================================================= */
+
+.qms-application .bg-white {
+  background:
+    rgba(14, 11, 30, 0.88) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+
+  color:
+    rgba(255, 255, 255, 0.92);
+}
+
+
+.qms-application .border-slate-200,
+.qms-application .border-slate-200\/80 {
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+}
+
+
+.qms-application .shadow-sm {
+  box-shadow:
+    0 18px 55px
+    rgba(0, 0, 0, 0.24) !important;
+}
+
+
+/* =========================================================
+   COMPLAINT INTAKE PANEL
+   ========================================================= */
+
+.qms-intake-form-panel > div {
+  height: 100%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10) !important;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 15, 37, 0.90),
+      rgba(11, 9, 24, 0.92)
+    ) !important;
+
+  box-shadow:
+    0 24px 70px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* Intake header */
+
+.qms-intake-form-panel > div > div:first-child {
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.qms-intake-form-panel h2 {
+  color:
+    #ffffff !important;
+}
+
+
+.qms-intake-form-panel .text-slate-500 {
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+
+/* =========================================================
+   COPILOT PANEL
+   ========================================================= */
+
+.qms-copilot-panel > div {
+  height: 100%;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.25) !important;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 7, 27, 0.97),
+      rgba(20, 10, 39, 0.95)
+    ) !important;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.38),
+
+    0 0 55px
+    rgba(82, 39, 255, 0.11),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+
+  transform:
+    translateZ(0);
+}
+
+
+/* Copilot top header */
+
+.qms-copilot-panel > div > div:first-child {
+  padding:
+    20px 22px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.15),
+      rgba(255, 159, 252, 0.065)
+    ) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 159, 252, 0.15) !important;
+}
+
+
+.qms-copilot-panel h3 {
+  color:
+    #ffffff !important;
+
+  font-size:
+    17px !important;
+}
+
+
+.qms-copilot-panel .text-slate-500,
+.qms-copilot-panel .text-slate-400 {
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+
+/* =========================================================
+   COPILOT QUICK SAMPLE BUTTONS
+   ========================================================= */
+
+.qms-copilot-panel button {
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+
+.qms-copilot-panel button.bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.14) !important;
+
+  color:
+    #ffb5fc !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.20) !important;
+}
+
+
+.qms-copilot-panel button.bg-indigo-50:hover {
+  background:
+    rgba(82, 39, 255, 0.28) !important;
+
+  color:
+    #ffffff !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.42) !important;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(82, 39, 255, 0.18);
+}
+
+
+.qms-copilot-panel button.bg-slate-100 {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  color:
+    rgba(255, 255, 255, 0.54) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+}
+
+
+.qms-copilot-panel button.bg-slate-100:hover {
+  background:
+    rgba(255, 255, 255, 0.09) !important;
+
+  color:
+    #ffffff !important;
+}
+
+
+/* =========================================================
+   COPILOT CHAT AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:nth-child(2) {
+  padding:
+    24px !important;
+
+  min-height:
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 5, 17, 0.58),
+      rgba(13, 8, 28, 0.74)
+    ) !important;
+
+  scrollbar-width: thin;
+}
+
+
+.qms-copilot-panel > div > div:nth-child(2)::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+.qms-copilot-panel > div > div:nth-child(2)::-webkit-scrollbar-track {
+  background:
+    transparent;
+}
+
+
+.qms-copilot-panel > div > div:nth-child(2)::-webkit-scrollbar-thumb {
+  background:
+    rgba(255, 159, 252, 0.25);
+
+  border-radius:
+    999px;
+}
+
+
+/* =========================================================
+   COPILOT CHAT BUBBLES
+   ========================================================= */
+
+.qms-copilot-panel .bg-indigo-600 {
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #704dff
+    ) !important;
+
+  box-shadow:
+    0 10px 28px
+    rgba(82, 39, 255, 0.22) !important;
+}
+
+
+.qms-copilot-panel .bg-white {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+
+  color:
+    rgba(255, 255, 255, 0.86) !important;
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.14) !important;
+}
+
+
+.qms-copilot-panel .bg-rose-50 {
+  background:
+    rgba(244, 63, 94, 0.10) !important;
+
+  border-color:
+    rgba(251, 113, 133, 0.18) !important;
+}
+
+
+/* =========================================================
+   COPILOT MESSAGE SPACING
+   ========================================================= */
+
+.qms-copilot-panel .space-y-4 > * + * {
+  margin-top:
+    18px !important;
+}
+
+
+.qms-copilot-panel .space-y-3 > * + * {
+  margin-top:
+    12px !important;
+}
+
+
+/* =========================================================
+   COPILOT USER / AI AVATARS
+   ========================================================= */
+
+.qms-copilot-panel .bg-slate-200 {
+  background:
+    rgba(255, 255, 255, 0.10) !important;
+
+  color:
+    rgba(255, 255, 255, 0.70) !important;
+}
+
+
+.qms-copilot-panel .bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.15) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.16) !important;
+}
+
+
+/* =========================================================
+   COPILOT PROCESSING MESSAGE
+   ========================================================= */
+
+.qms-copilot-panel .animate-pulse {
+  background:
+    rgba(82, 39, 255, 0.09) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.16) !important;
+
+  color:
+    rgba(255, 255, 255, 0.62) !important;
+}
+
+
+/* =========================================================
+   COPILOT INPUT / UPLOAD AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child {
+  padding:
+    18px 20px 16px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16, 10, 34, 0.96),
+      rgba(9, 7, 22, 0.98)
+    ) !important;
+
+  border-top:
+    1px solid
+    rgba(255, 159, 252, 0.14) !important;
+}
+
+
+/* Main message composer */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child {
+  min-height:
+    54px;
+
+  padding:
+    5px !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.20) !important;
+
+  border-radius:
+    15px !important;
+
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05),
+
+    0 8px 28px
+    rgba(0, 0, 0, 0.18) !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child:focus-within {
+  border-color:
+    rgba(255, 159, 252, 0.48) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(82, 39, 255, 0.14),
+
+    0 10px 32px
+    rgba(82, 39, 255, 0.15) !important;
+}
+
+
+/* Attachment button */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:first-of-type {
+  width:
+    44px;
+
+  height:
+    44px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    11px;
+
+  color:
+    rgba(255, 255, 255, 0.56) !important;
+
+  background:
+    rgba(255, 255, 255, 0.045) !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:first-of-type:hover {
+  color:
+    #ff9ffc !important;
+
+  background:
+    rgba(82, 39, 255, 0.20) !important;
+
+  transform:
+    scale(1.04);
+
+  box-shadow:
+    0 6px 20px
+    rgba(82, 39, 255, 0.18);
+}
+
+
+/* Text input */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child input[type="text"] {
+  height:
+    44px;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    13px !important;
+
+  padding:
+    0 12px !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child input[type="text"]::placeholder {
+  color:
+    rgba(255, 255, 255, 0.40) !important;
+}
+
+
+/* Send button */
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:last-child {
+  width:
+    44px;
+
+  height:
+    44px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #754cff
+    ) !important;
+
+  box-shadow:
+    0 8px 24px
+    rgba(82, 39, 255, 0.25);
+}
+
+
+.qms-copilot-panel > div > div:last-child form > div:first-child button:last-child:hover {
+  transform:
+    translateY(-1px)
+    scale(1.03);
+
+  box-shadow:
+    0 10px 28px
+    rgba(82, 39, 255, 0.38);
+}
+
+
+/* Powered by LangGraph */
+
+.qms-copilot-panel > div > div:last-child span {
+  color:
+    rgba(255, 255, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   QMS INPUTS
+   ========================================================= */
+
+.qms-application .qms-input {
+  min-height:
+    46px;
+
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.13) !important;
+
+  color:
+    #ffffff !important;
+
+  border-radius:
+    10px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+
+.qms-application .qms-input:focus {
+  background:
+    rgba(255, 255, 255, 0.075) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.48) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(82, 39, 255, 0.13) !important;
+}
+
+
+.qms-application .qms-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.36) !important;
+}
+
+
+.qms-application .qms-input option {
+  background:
+    #151029;
+
+  color:
+    #ffffff;
+}
+
+
+/* =========================================================
+   QMS LABELS
+   ========================================================= */
+
+.qms-application .qms-label {
+  color:
+    rgba(255, 255, 255, 0.58) !important;
+
+  margin-bottom:
+    7px;
+}
+
+
+.qms-application .qms-section-title {
+  color:
+    rgba(255, 159, 252, 0.78) !important;
+
+  margin-top:
+    1.4rem;
+}
+
+
+/* =========================================================
+   AI ASSESSMENT CARD
+   ========================================================= */
+
+.qms-application .qms-ai-assessment-card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.15),
+      rgba(255, 159, 252, 0.055)
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.18) !important;
+
+  box-shadow:
+    0 12px 38px
+    rgba(82, 39, 255, 0.10);
+}
+
+
+.qms-application .qms-ai-assessment-card h3 {
+  color:
+    #ffffff !important;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTONS
+   ========================================================= */
+
+.qms-application .btn-primary {
+  min-height:
+    48px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff 0%,
+      #6740ff 55%,
+      #8b62ff 100%
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.28);
+
+  border-radius:
+    12px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(82, 39, 255, 0.25),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.14);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+
+.qms-application .btn-primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #633cff 0%,
+      #7955ff 55%,
+      #a06eff 100%
+    ) !important;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 16px 38px
+    rgba(82, 39, 255, 0.34),
+
+    0 0 24px
+    rgba(255, 159, 252, 0.10);
+
+  filter:
+    brightness(1.05);
+}
+
+
+.qms-application .btn-primary:active {
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.qms-application .badge-ready {
+  background:
+    rgba(16, 185, 129, 0.12) !important;
+
+  color:
+    #6ee7b7 !important;
+
+  border-color:
+    rgba(52, 211, 153, 0.22) !important;
+}
+
+
+.qms-application .badge-draft {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  color:
+    rgba(255, 255, 255, 0.50) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.10) !important;
+}
+
+
+/* =========================================================
+   LEDGER + INSIGHTS DASHBOARDS
+   ========================================================= */
+
+.qms-dashboard-page {
+  width:
+    100%;
+
+  min-height:
+    calc(100vh - 150px);
+}
+
+
+.qms-dashboard-page > div {
+  min-height:
+    100%;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.10) !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 12, 32, 0.91),
+      rgba(10, 8, 23, 0.94)
+    ) !important;
+
+  box-shadow:
+    0 26px 80px
+    rgba(0, 0, 0, 0.28),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================================
+   LEDGER HEADER
+   ========================================================= */
+
+.qms-dashboard-page h2 {
+  color:
+    #ffffff !important;
+}
+
+
+.qms-dashboard-page .text-slate-500 {
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+
+.qms-dashboard-page .bg-slate-50,
+.qms-dashboard-page .bg-slate-50\/50,
+.qms-dashboard-page .bg-slate-50\/70 {
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+}
+
+
+.qms-dashboard-page .text-slate-700,
+.qms-dashboard-page .text-slate-800,
+.qms-dashboard-page .text-slate-900 {
+  color:
+    rgba(255, 255, 255, 0.82) !important;
+}
+
+
+/* =========================================================
+   LEDGER TABLE
+   ========================================================= */
+
+.qms-dashboard-page table {
+  color:
+    rgba(255, 255, 255, 0.78);
+}
+
+
+.qms-dashboard-page thead tr {
+  background:
+    rgba(82, 39, 255, 0.08) !important;
+
+  color:
+    rgba(255, 159, 252, 0.72) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.qms-dashboard-page tbody tr {
+  border-color:
+    rgba(255, 255, 255, 0.06) !important;
+
+  transition:
+    background 180ms ease;
+}
+
+
+.qms-dashboard-page tbody tr:hover {
+  background:
+    rgba(82, 39, 255, 0.07) !important;
+}
+
+
+.qms-dashboard-page tbody td {
+  color:
+    rgba(255, 255, 255, 0.74);
+}
+
+
+.qms-dashboard-page tbody td.font-bold,
+.qms-dashboard-page tbody td.font-semibold {
+  color:
+    rgba(255, 255, 255, 0.90);
+}
+
+
+/* Ledger status select */
+
+.qms-dashboard-page select {
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.12) !important;
+
+  color:
+    #ffffff !important;
+}
+
+
+.qms-dashboard-page select option {
+  background:
+    #151029;
+
+  color:
+    #ffffff;
+}
+
+
+/* Ledger buttons */
+
+.qms-dashboard-page button.bg-indigo-50 {
+  background:
+    rgba(82, 39, 255, 0.13) !important;
+
+  color:
+    #ff9ffc !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.20) !important;
+}
+
+
+.qms-dashboard-page button.bg-indigo-50:hover {
+  background:
+    rgba(82, 39, 255, 0.24) !important;
+
+  color:
+    #ffffff !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.36) !important;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   INSIGHTS KPI CARDS
+   ========================================================= */
+
+.qms-dashboard-page .bg-rose-50\/70 {
+  background:
+    rgba(244, 63, 94, 0.085) !important;
+
+  border-color:
+    rgba(251, 113, 133, 0.20) !important;
+}
+
+
+.qms-dashboard-page .bg-indigo-50\/70,
+.qms-dashboard-page .bg-indigo-50\/50 {
+  background:
+    rgba(82, 39, 255, 0.09) !important;
+
+  border-color:
+    rgba(129, 140, 248, 0.18) !important;
+}
+
+
+.qms-dashboard-page .bg-emerald-50\/70 {
+  background:
+    rgba(16, 185, 129, 0.075) !important;
+
+  border-color:
+    rgba(52, 211, 153, 0.18) !important;
+}
+
+
+/* KPI number */
+
+.qms-dashboard-page .text-2xl {
+  color:
+    #ffffff !important;
+}
+
+
+/* =========================================================
+   INSIGHTS ANALYTICS CARDS
+   ========================================================= */
+
+.qms-dashboard-page .bg-slate-50\/70 {
+  background:
+    rgba(255, 255, 255, 0.035) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.08) !important;
+}
+
+
+.qms-dashboard-page .bg-indigo-50\/50 {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.12),
+      rgba(255, 159, 252, 0.04)
+    ) !important;
+}
+
+
+.qms-dashboard-page h3 {
+  color:
+    rgba(255, 255, 255, 0.88) !important;
+}
+
+
+.qms-dashboard-page li,
+.qms-dashboard-page p {
+  color:
+    rgba(255, 255, 255, 0.72);
+}
+
+
+/* =========================================================
+   COMPLAINT DETAIL MODAL
+   ========================================================= */
+
+.qms-application .fixed.inset-0 {
+  background:
+    rgba(3, 2, 10, 0.78) !important;
+
+  backdrop-filter:
+    blur(14px);
+}
+
+
+.qms-application .fixed.inset-0 > div {
+  background:
+    linear-gradient(
+      145deg,
+      #15102d,
+      #0d0a20
+    ) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.18) !important;
+
+  box-shadow:
+    0 30px 100px
+    rgba(0, 0, 0, 0.55) !important;
+}
+
+
+/* =========================================================
+   NOTIFICATION BANNER
+   ========================================================= */
+
+.qms-application .fixed.bottom-6 {
+  filter:
+    drop-shadow(
+      0 15px 35px
+      rgba(0, 0, 0, 0.30)
+    );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .qms-intake-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  }
+
+}
+
+
+@media (max-width: 1024px) {
+
+  .qms-main {
+    padding:
+      18px 18px 32px;
+  }
+
+  .qms-intake-grid {
+    grid-template-columns:
+      1fr;
+
+    min-height:
+      auto;
+  }
+
+  .qms-intake-form-panel,
+  .qms-copilot-panel {
+    min-height:
+      760px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .qms-home-row {
+    padding:
+      12px
+      14px
+      6px;
+  }
+
+  .qms-main {
+    padding:
+      14px
+      12px
+      28px;
+  }
+
+  .qms-intake-grid {
+    gap:
+      16px;
+  }
+
+  .qms-intake-form-panel,
+  .qms-copilot-panel {
+    min-height:
+      680px;
+  }
+
+  .qms-copilot-panel > div > div:nth-child(2) {
+    padding:
+      18px !important;
+  }
+
+  .qms-copilot-panel > div > div:last-child {
+    padding:
+      14px !important;
+  }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-home-button,
+  .qms-application button,
+  .qms-application .btn-primary {
+    transition:
+      none !important;
+  }
+
+}
+/* =========================================================
+   AIVOA.AI COPILOT — VISUAL EMPHASIS
+   ========================================================= */
+
+/*
+ * Main Copilot container
+ *
+ * Stronger separation from the QMS background.
+ */
+
+.qms-copilot-panel > div {
+  position: relative;
+
+  height: 100%;
+
+  border: 1px solid
+    rgba(255, 159, 252, 0.52) !important;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 7, 31, 0.985),
+      rgba(25, 10, 48, 0.975)
+    ) !important;
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.48),
+
+    0 0 45px
+    rgba(82, 39, 255, 0.20),
+
+    0 0 85px
+    rgba(255, 159, 252, 0.08),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.10);
+
+  overflow: hidden;
+
+  transform:
+    translateZ(0);
+
+  isolation: isolate;
+
+  animation:
+    copilot-border-glow
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+/*
+ * Animated outer glow.
+ *
+ * This makes the Copilot visually "alive" without
+ * becoming distracting.
+ */
+
+.qms-copilot-panel > div::before {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 159, 252, 0.16),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(82, 39, 255, 0.18),
+      transparent 38%
+    );
+
+  opacity: 0.85;
+
+  animation:
+    copilot-atmosphere
+    6s
+    ease-in-out
+    infinite;
+}
+
+
+/*
+ * Animated border glow.
+ */
+
+@keyframes copilot-border-glow {
+
+  0%,
+  100% {
+    border-color:
+      rgba(255, 159, 252, 0.38);
+
+    box-shadow:
+      0 30px 90px
+      rgba(0, 0, 0, 0.48),
+
+      0 0 38px
+      rgba(82, 39, 255, 0.16),
+
+      0 0 70px
+      rgba(255, 159, 252, 0.05),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.10);
+  }
+
+  50% {
+    border-color:
+      rgba(255, 159, 252, 0.72);
+
+    box-shadow:
+      0 30px 90px
+      rgba(0, 0, 0, 0.48),
+
+      0 0 55px
+      rgba(82, 39, 255, 0.25),
+
+      0 0 100px
+      rgba(255, 159, 252, 0.11),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.14);
+  }
+
+}
+
+
+/*
+ * Background atmospheric animation.
+ */
+
+@keyframes copilot-atmosphere {
+
+  0%,
+  100% {
+    transform:
+      scale(1);
+
+    opacity:
+      0.65;
+  }
+
+  50% {
+    transform:
+      scale(1.08);
+
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =========================================================
+   COPILOT HEADER
+   ========================================================= */
+
+.qms-copilot-panel > div > div:first-child {
+  position: relative;
+
+  min-height:
+    82px;
+
+  padding:
+    19px 22px !important;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(110, 55, 255, 0.18) 45%,
+      rgba(255, 159, 252, 0.16)
+    ) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 159, 252, 0.30) !important;
+
+  box-shadow:
+    0 10px 32px
+    rgba(82, 39, 255, 0.14),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+
+  overflow:
+    hidden;
+}
+
+
+/*
+ * Moving light across the header.
+ */
+
+.qms-copilot-panel > div > div:first-child::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: -35%;
+
+  width: 28%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.13),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  animation:
+    copilot-header-shimmer
+    4.5s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes copilot-header-shimmer {
+
+  0% {
+    left:
+      -35%;
+  }
+
+  55%,
+  100% {
+    left:
+      120%;
+  }
+
+}
+
+
+/* =========================================================
+   COPILOT TITLE
+   ========================================================= */
+
+.qms-copilot-panel h3 {
+  position: relative;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    18px !important;
+
+  font-weight:
+    750 !important;
+
+  letter-spacing:
+    -0.02em;
+
+  text-shadow:
+    0 0 20px
+    rgba(255, 159, 252, 0.22);
+}
+
+
+/*
+ * Make Copilot subtitle clearer.
+ */
+
+.qms-copilot-panel > div > div:first-child
+.text-slate-500,
+.qms-copilot-panel > div > div:first-child
+.text-slate-400 {
+  color:
+    rgba(255, 255, 255, 0.66) !important;
+}
+
+
+/* =========================================================
+   AI STATUS / ICON AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:first-child svg {
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(255, 159, 252, 0.50)
+    );
+}
+
+
+/* =========================================================
+   QUICK ACTION AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:first-child
++ div {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 7, 23, 0.94),
+      rgba(13, 8, 28, 0.92)
+    ) !important;
+}
+
+
+/* =========================================================
+   COPILOT CHAT AREA
+   ========================================================= */
+
+.qms-copilot-panel > div > div:nth-child(2) {
+  padding:
+    25px !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(82, 39, 255, 0.075),
+      transparent 35%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(5, 4, 14, 0.82),
+      rgba(13, 8, 28, 0.90)
+    ) !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 159, 252, 0.10);
+}
+
+
+/*
+ * Add subtle separator around chat messages.
+ */
+
+.qms-copilot-panel .space-y-4 > * + * {
+  margin-top:
+    20px !important;
+}
+
+
+/* =========================================================
+   AI MESSAGE BUBBLES
+   ========================================================= */
+
+.qms-copilot-panel .bg-white {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.045)
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12) !important;
+
+  color:
+    rgba(255, 255, 255, 0.90) !important;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.20) !important;
+}
+
+
+/* User message */
+
+.qms-copilot-panel .bg-indigo-600 {
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #7147ff,
+      #815cff
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.25);
+
+  box-shadow:
+    0 10px 30px
+    rgba(82, 39, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   COMPOSER
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child {
+  padding:
+    19px 20px 17px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 10, 40, 0.98),
+      rgba(8, 6, 20, 0.99)
+    ) !important;
+
+  border-top:
+    1px solid
+    rgba(255, 159, 252, 0.22) !important;
+
+  box-shadow:
+    0 -12px 35px
+    rgba(82, 39, 255, 0.08);
+}
+
+
+/*
+ * Larger, stronger message input.
+ */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child {
+  min-height:
+    58px !important;
+
+  padding:
+    6px !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.30) !important;
+
+  border-radius:
+    16px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(82, 39, 255, 0.065)
+    ) !important;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.07);
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child:focus-within {
+  border-color:
+    rgba(255, 159, 252, 0.68) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(82, 39, 255, 0.11)
+    ) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(82, 39, 255, 0.15),
+
+    0 12px 36px
+    rgba(82, 39, 255, 0.20),
+
+    0 0 25px
+    rgba(255, 159, 252, 0.08);
+}
+
+
+/* =========================================================
+   UPLOAD BUTTON
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:first-of-type {
+  width:
+    46px !important;
+
+  height:
+    46px !important;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    12px;
+
+  color:
+    rgba(255, 255, 255, 0.68) !important;
+
+  background:
+    rgba(82, 39, 255, 0.12) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.16);
+
+  transition:
+    all 180ms ease;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:first-of-type:hover {
+  color:
+    #ffffff !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.38),
+      rgba(255, 159, 252, 0.16)
+    ) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.50);
+
+  transform:
+    translateY(-1px)
+    scale(1.04);
+
+  box-shadow:
+    0 8px 24px
+    rgba(82, 39, 255, 0.25),
+
+    0 0 18px
+    rgba(255, 159, 252, 0.08);
+}
+
+
+/* =========================================================
+   TEXT INPUT
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+input[type="text"] {
+  height:
+    46px !important;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    13.5px !important;
+
+  padding:
+    0 13px !important;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+input[type="text"]::placeholder {
+  color:
+    rgba(255, 255, 255, 0.43) !important;
+}
+
+
+/* =========================================================
+   SEND BUTTON
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:last-child {
+  width:
+    46px !important;
+
+  height:
+    46px !important;
+
+  flex-shrink:
+    0;
+
+  border-radius:
+    12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #5227ff,
+      #744bff,
+      #8c61ff
+    ) !important;
+
+  border:
+    1px solid
+    rgba(255, 159, 252, 0.32);
+
+  box-shadow:
+    0 9px 26px
+    rgba(82, 39, 255, 0.30);
+
+  transition:
+    all 180ms ease;
+}
+
+
+.qms-copilot-panel > div > div:last-child
+form > div:first-child
+button:last-child:hover {
+  transform:
+    translateY(-2px)
+    scale(1.04);
+
+  box-shadow:
+    0 13px 32px
+    rgba(82, 39, 255, 0.42),
+
+    0 0 20px
+    rgba(255, 159, 252, 0.12);
+}
+
+
+/* =========================================================
+   COPILOT FOOTER
+   ========================================================= */
+
+.qms-copilot-panel > div > div:last-child
+span {
+  color:
+    rgba(255, 255, 255, 0.30) !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .qms-copilot-panel > div {
+    border-radius:
+      18px;
+  }
+
+  .qms-copilot-panel > div > div:first-child {
+    min-height:
+      74px;
+
+    padding:
+      16px !important;
+  }
+
+  .qms-copilot-panel > div > div:nth-child(2) {
+    padding:
+      18px !important;
+  }
+
+  .qms-copilot-panel > div > div:last-child {
+    padding:
+      15px !important;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-copilot-panel > div,
+  .qms-copilot-panel > div::before,
+  .qms-copilot-panel > div > div:first-child::after {
+    animation:
+      none !important;
+  }
+
+}
+
+/* =========================================================
+   AIVOA.AI QMS — LEDGER / DASHBOARD VISUAL POLISH
+   UI ONLY — NO FUNCTIONALITY CHANGES
+   ========================================================= */
+
+
+/* =========================================================
+   1. DASHBOARD PAGE ATMOSPHERE
+   ========================================================= */
+
+.qms-dashboard-page {
+  position: relative;
+  isolation: isolate;
+  padding: 10px 2px 80px;
+  min-height: 760px;
+  overflow: visible;
+}
+
+.qms-dashboard-page::before {
+  content: '';
+  position: absolute;
+  inset: -80px -60px -120px;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(82, 39, 255, 0.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(255, 159, 252, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 55% 75%,
+      rgba(82, 39, 255, 0.10),
+      transparent 35%
+    );
+}
+
+.qms-dashboard-page::after {
+  content: '';
+  position: absolute;
+  inset: -30px -20px -80px;
+  z-index: -1;
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 34px 34px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    rgba(0, 0, 0, 0.65) 55%,
+    transparent 100%
+  );
+}
+
+
+/* =========================================================
+   2. QMS LEDGER MAIN CARD
+   ========================================================= */
+
+.qms-dashboard-page > div.bg-white {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 14, 39, 0.96),
+      rgba(12, 9, 28, 0.97)
+    ) !important;
+
+  border: 1px solid
+    rgba(255, 159, 252, 0.28) !important;
+
+  border-radius: 22px !important;
+
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.40),
+    0 0 45px rgba(82, 39, 255, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+
+  overflow: hidden;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   3. LEDGER HEADER / TITLE AREA
+   ========================================================= */
+
+.qms-dashboard-page > div.bg-white > div:first-child {
+  position: relative;
+
+  padding: 20px 22px 18px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.14),
+      rgba(255, 159, 252, 0.055) 55%,
+      rgba(255, 255, 255, 0.025)
+    ) !important;
+
+  border-bottom:
+    1px solid rgba(255, 159, 252, 0.16) !important;
+}
+
+.qms-dashboard-page > div.bg-white > div:first-child::after {
+  content: '';
+
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 159, 252, 0.48),
+      rgba(82, 39, 255, 0.48),
+      transparent
+    );
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   4. LEDGER TITLE
+   ========================================================= */
+
+.qms-dashboard-page > div.bg-white > div:first-child h2,
+.qms-dashboard-page > div.bg-white > div:first-child h3 {
+  color: #ffffff !important;
+
+  text-shadow:
+    0 0 18px rgba(255, 159, 252, 0.16);
+
+  letter-spacing: -0.025em;
+}
+
+.qms-dashboard-page > div.bg-white > div:first-child p {
+  color:
+    rgba(255, 255, 255, 0.52) !important;
+}
+
+
+/* =========================================================
+   5. REFRESH BUTTON
+   ========================================================= */
+
+.qms-dashboard-page button {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.qms-dashboard-page > div.bg-white > div:first-child button {
+  border:
+    1px solid rgba(255, 159, 252, 0.30) !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.20),
+      rgba(255, 159, 252, 0.08)
+    ) !important;
+
+  color:
+    rgba(255, 255, 255, 0.86) !important;
+
+  border-radius: 10px !important;
+
+  box-shadow:
+    0 7px 22px rgba(82, 39, 255, 0.14);
+}
+
+.qms-dashboard-page > div.bg-white > div:first-child button:hover {
+  transform: translateY(-1px);
+
+  border-color:
+    rgba(255, 159, 252, 0.58) !important;
+
+  box-shadow:
+    0 10px 28px rgba(82, 39, 255, 0.24),
+    0 0 20px rgba(255, 159, 252, 0.07);
+}
+
+
+/* =========================================================
+   6. SEARCH + FILTER AREA
+   ========================================================= */
+
+.qms-dashboard-page > div.bg-white > div:nth-child(2) {
+  padding:
+    18px 22px 22px !important;
+
+  margin-bottom:
+    6px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(82, 39, 255, 0.025)
+    ) !important;
+
+  border-bottom:
+    1px solid rgba(255, 159, 252, 0.10) !important;
+}
+
+
+/* Search/filter controls */
+
+.qms-dashboard-page .qms-input,
+.qms-dashboard-page select {
+  min-height: 50px !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13) !important;
+
+  border-radius: 12px !important;
+
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  color:
+    rgba(255, 255, 255, 0.90) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.qms-dashboard-page .qms-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.34) !important;
+}
+
+.qms-dashboard-page .qms-input:focus,
+.qms-dashboard-page select:focus {
+  outline: none !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.52) !important;
+
+  background:
+    rgba(82, 39, 255, 0.09) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(82, 39, 255, 0.11),
+    0 8px 25px rgba(82, 39, 255, 0.12);
+}
+
+
+/* =========================================================
+   7. EXTRA GAP BEFORE TABLE
+   ========================================================= */
+
+.qms-dashboard-page > div.bg-white > div.overflow-x-auto {
+  margin-top: 10px !important;
+
+  padding:
+    4px 22px 22px !important;
+}
+
+
+/* =========================================================
+   8. TABLE CONTAINER
+   ========================================================= */
+
+.qms-dashboard-page table {
+  width: 100%;
+
+  min-width: 1450px;
+
+  border-collapse: separate;
+  border-spacing: 0 5px;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   9. TABLE HEADER — SEPARATE IT VISUALLY
+   ========================================================= */
+
+.qms-dashboard-page thead {
+  position: relative;
+}
+
+.qms-dashboard-page thead tr {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(82, 39, 255, 0.14),
+      rgba(255, 159, 252, 0.055),
+      rgba(82, 39, 255, 0.08)
+    );
+}
+
+.qms-dashboard-page thead th {
+  padding:
+    12px 14px !important;
+
+  color:
+    rgba(255, 255, 255, 0.58) !important;
+
+  font-size:
+    11px !important;
+
+  font-weight:
+    750 !important;
+
+  letter-spacing:
+    0.055em;
+
+  white-space:
+    nowrap;
+
+  border-top:
+    1px solid rgba(255, 159, 252, 0.12);
+
+  border-bottom:
+    1px solid rgba(255, 159, 252, 0.12);
+}
+
+.qms-dashboard-page thead th:first-child {
+  border-left:
+    1px solid rgba(255, 159, 252, 0.12);
+
+  border-radius:
+    10px 0 0 10px;
+}
+
+.qms-dashboard-page thead th:last-child {
+  border-right:
+    1px solid rgba(255, 159, 252, 0.12);
+
+  border-radius:
+    0 10px 10px 0;
+}
+
+
+/* =========================================================
+   10. TABLE BODY — MORE BREATHING ROOM
+   ========================================================= */
+
+.qms-dashboard-page tbody tr {
+  background:
+    rgba(255, 255, 255, 0.028);
+
+  transition:
+    background 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.qms-dashboard-page tbody tr:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(82, 39, 255, 0.11),
+      rgba(255, 159, 252, 0.045),
+      rgba(82, 39, 255, 0.07)
+    );
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.qms-dashboard-page tbody td {
+  padding:
+    11px 14px !important;
+
+  color:
+    rgba(255, 255, 255, 0.76) !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.45 !important;
+
+  white-space:
+    nowrap;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.055);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.055);
+}
+
+.qms-dashboard-page tbody td:first-child {
+  border-left:
+    1px solid rgba(255, 255, 255, 0.055);
+
+  border-radius:
+    10px 0 0 10px;
+}
+
+.qms-dashboard-page tbody td:last-child {
+  border-right:
+    1px solid rgba(255, 255, 255, 0.055);
+
+  border-radius:
+    0 10px 10px 0;
+}
+
+
+/* =========================================================
+   11. IMPORTANT TABLE VALUES
+   ========================================================= */
+
+.qms-dashboard-page tbody td:nth-child(1),
+.qms-dashboard-page tbody td:nth-child(3) {
+  color:
+    rgba(255, 255, 255, 0.94) !important;
+
+  font-weight:
+    650;
+}
+
+.qms-dashboard-page tbody td:nth-child(2) {
+  color:
+    rgba(255, 255, 255, 0.86) !important;
+}
+
+
+/* =========================================================
+   12. STATUS SELECTS INSIDE TABLE
+   ========================================================= */
+
+.qms-dashboard-page tbody select {
+  min-height:
+    34px !important;
+
+  height:
+    34px !important;
+
+  padding:
+    0 28px 0 10px !important;
+
+  border-radius:
+    9px !important;
+
+  background:
+    rgba(255, 255, 255, 0.055) !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12) !important;
+
+  font-size:
+    11px !important;
+}
+
+
+/* =========================================================
+   13. SEVERITY BADGES
+   ========================================================= */
+
+.qms-dashboard-page tbody td span {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.qms-dashboard-page tbody td span:hover {
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   14. VIEW RECORD ACTION
+   ========================================================= */
+
+.qms-dashboard-page tbody td button {
+  border-radius:
+    9px !important;
+
+  padding:
+    6px 9px !important;
+
+  background:
+    rgba(82, 39, 255, 0.08) !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.12);
+
+  color:
+    rgba(255, 159, 252, 0.92) !important;
+}
+
+.qms-dashboard-page tbody td button:hover {
+  background:
+    rgba(82, 39, 255, 0.18) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.38);
+
+  box-shadow:
+    0 6px 18px rgba(82, 39, 255, 0.18);
+}
+
+
+/* =========================================================
+   15. TOP QMS NAVIGATION — MAKE DASHBOARD SWITCHER CLEAR
+   ========================================================= */
+
+.qms-application-content > header {
+  position: relative;
+
+  z-index: 30;
+
+  border-bottom:
+    1px solid rgba(255, 159, 252, 0.12) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9, 7, 22, 0.94),
+      rgba(18, 10, 37, 0.94),
+      rgba(9, 7, 22, 0.94)
+    ) !important;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.20);
+}
+
+
+/* Navigation area */
+
+.qms-application-content > header nav {
+  padding:
+    5px !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.18);
+
+  border-radius:
+    14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.10),
+      rgba(255, 159, 252, 0.045)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 25px rgba(0, 0, 0, 0.16);
+}
+
+
+/* Make navigation buttons breathe */
+
+.qms-application-content > header nav button {
+  min-height:
+    38px;
+
+  padding:
+    0 13px !important;
+
+  border-radius:
+    10px !important;
+
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+
+/* Hover */
+
+.qms-application-content > header nav button:hover {
+  background:
+    rgba(82, 39, 255, 0.13) !important;
+
+  color:
+    #ffffff !important;
+
+  box-shadow:
+    0 5px 18px rgba(82, 39, 255, 0.13);
+}
+
+
+/* Active tab — works with common Tailwind active styles */
+
+.qms-application-content > header nav button.bg-indigo-50,
+.qms-application-content > header nav button.bg-indigo-600,
+.qms-application-content > header nav button[class*="bg-indigo"] {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(255, 159, 252, 0.12)
+    ) !important;
+
+  color:
+    #ffffff !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.24);
+
+  box-shadow:
+    0 7px 22px rgba(82, 39, 255, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   16. BRAND / AIVOA.AI QMS HEADING
+   ========================================================= */
+
+.qms-application-content > header > div:first-child {
+  position: relative;
+
+  padding:
+    8px 14px 8px 10px;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.13);
+
+  border-radius:
+    13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.10),
+      rgba(255, 159, 252, 0.035)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+
+/* Brand title */
+
+.qms-application-content > header > div:first-child h1,
+.qms-application-content > header > div:first-child h2 {
+  color:
+    #ffffff !important;
+
+  text-shadow:
+    0 0 18px rgba(82, 39, 255, 0.20);
+}
+
+
+/* Brand subtitle */
+
+.qms-application-content > header > div:first-child p {
+  color:
+    rgba(255, 255, 255, 0.54) !important;
+}
+
+
+/* =========================================================
+   17. ONLINE STATUS
+   ========================================================= */
+
+.qms-application-content > header > div:last-child {
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius:
+    999px;
+
+  padding:
+    5px 10px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================================
+   18. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .qms-dashboard-page > div.bg-white > div.overflow-x-auto {
+    padding-left:
+      16px !important;
+
+    padding-right:
+      16px !important;
+  }
+
+  .qms-dashboard-page table {
+    min-width:
+      1350px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page {
+    padding:
+      6px 0 45px;
+  }
+
+  .qms-dashboard-page > div.bg-white {
+    border-radius:
+      18px !important;
+  }
+
+  .qms-dashboard-page > div.bg-white > div:first-child {
+    padding:
+      17px !important;
+  }
+
+  .qms-dashboard-page > div.bg-white > div:nth-child(2) {
+    padding:
+      15px 17px 18px !important;
+  }
+
+  .qms-dashboard-page > div.bg-white > div.overflow-x-auto {
+    padding:
+      4px 12px 16px !important;
+  }
+
+  .qms-dashboard-page table {
+    min-width:
+      1200px;
+  }
+
+}
+
+
+/* =========================================================
+   19. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-dashboard-page *,
+  .qms-application-content > header * {
+    transition:
+      none !important;
+  }
+
+}
+
+
+/* =========================================================
+   AIVOA.AI QMS — RECORD VIEW SPACING REFINEMENT
+   QMS LEDGER > VIEW RECORD MODAL
+   UI ONLY — NO FUNCTIONALITY CHANGES
+   ========================================================= */
+
+
+/* =========================================================
+   1. RECORD MODAL — GIVE THE CONTENT ROOM TO BREATHE
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0 > div {
+  padding:
+    0 !important;
+
+  overflow-y:
+    auto !important;
+}
+
+
+/* =========================================================
+   2. MODAL CONTENT INNER SPACING
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0 > div > div {
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   3. METADATA — MORE SPACE BETWEEN EACH FIELD
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0 .grid {
+  margin-top:
+    8px !important;
+
+  margin-bottom:
+    14px !important;
+
+  gap:
+    12px !important;
+}
+
+.qms-dashboard-page .fixed.inset-0 .grid > div {
+  padding:
+    12px 15px !important;
+
+  min-height:
+    68px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    center;
+
+  gap:
+    5px;
+
+  border-radius:
+    12px !important;
+}
+
+
+/* =========================================================
+   4. COMPLAINT DESCRIPTION — SEPARATE IT FROM METADATA
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  .grid + div {
+  margin-top:
+    12px !important;
+
+  margin-bottom:
+    18px !important;
+}
+
+
+/* Description heading */
+
+.qms-dashboard-page .fixed.inset-0
+  .grid + div .text-xs {
+  margin-bottom:
+    7px !important;
+
+  display:
+    block;
+
+  color:
+    rgba(255, 159, 252, 0.78) !important;
+
+  font-size:
+    10px !important;
+
+  font-weight:
+    750 !important;
+
+  letter-spacing:
+    0.065em;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* Description body */
+
+.qms-dashboard-page .fixed.inset-0
+  .grid + div p {
+  padding:
+    12px 14px !important;
+
+  margin:
+    0 !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius:
+    11px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color:
+    rgba(255, 255, 255, 0.80) !important;
+
+  line-height:
+    1.65 !important;
+}
+
+
+/* =========================================================
+   5. AI RISK / CAPA SECTION — CLEAR VISUAL SEPARATION
+   ========================================================= */
+
+/*
+   This is deliberately given more separation from the
+   complaint description so it reads as a second major
+   information block.
+*/
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] {
+  position:
+    relative;
+
+  margin-top:
+    20px !important;
+
+  padding:
+    18px 18px 20px !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.22) !important;
+
+  border-radius:
+    15px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(82, 39, 255, 0.14),
+      rgba(255, 159, 252, 0.055),
+      rgba(255, 255, 255, 0.025)
+    ) !important;
+
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   6. AI SECTION HEADING — MAKE IT ACTUALLY VISIBLE
+   ========================================================= */
+
+/*
+   The previous version allowed the heading to blend into
+   the dark background. This gives it its own visual row.
+*/
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] .text-indigo-600,
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] .text-indigo-700,
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] .font-bold {
+  display:
+    block;
+
+  margin-bottom:
+    12px !important;
+
+  padding-bottom:
+    10px !important;
+
+  color:
+    #e2d7ff !important;
+
+  font-size:
+    12px !important;
+
+  font-weight:
+    800 !important;
+
+  letter-spacing:
+    0.035em;
+
+  line-height:
+    1.4;
+
+  text-shadow:
+    0 0 18px rgba(255, 159, 252, 0.22);
+
+  border-bottom:
+    1px solid rgba(255, 159, 252, 0.16);
+}
+
+
+/* =========================================================
+   7. AI SECTION — EACH SUBSECTION GETS BREATHING ROOM
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] p {
+  margin-top:
+    5px !important;
+
+  margin-bottom:
+    13px !important;
+
+  color:
+    rgba(255, 255, 255, 0.80) !important;
+
+  line-height:
+    1.62 !important;
+}
+
+
+/* Don't leave the last paragraph with unnecessary space */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] p:last-child {
+  margin-bottom:
+    0 !important;
+}
+
+
+/* =========================================================
+   8. AI SUBHEADINGS — SUGGESTED ACTION / RISK / ROOT CAUSE
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] .text-xs,
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] .text-sm.font-semibold,
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] .font-semibold {
+  color:
+    rgba(255, 159, 252, 0.78) !important;
+
+  font-weight:
+    750 !important;
+
+  letter-spacing:
+    0.015em;
+}
+
+
+/* =========================================================
+   9. CREATE VISUAL BREAKS BETWEEN AI ITEMS
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] > div + div {
+  margin-top:
+    12px !important;
+}
+
+
+/* =========================================================
+   10. GENERAL MODAL TEXT READABILITY
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  p {
+  font-size:
+    12px;
+
+  line-height:
+    1.6;
+}
+
+
+/* =========================================================
+   11. STATUS / SEVERITY SHOULD STAND OUT
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  .bg-orange-100,
+.qms-dashboard-page .fixed.inset-0
+  .bg-red-100,
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-red-"],
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-orange-"] {
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   12. FOOTER — MORE SPACE BEFORE CLOSE BUTTON
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:last-child {
+  padding:
+    16px 20px !important;
+
+  margin-top:
+    6px;
+
+  border-top:
+    1px solid rgba(255, 159, 252, 0.12) !important;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-end;
+}
+
+
+/* =========================================================
+   13. CLOSE RECORD BUTTON — SLIGHTLY MORE PREMIUM
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  button.bg-indigo-600 {
+  min-width:
+    150px;
+
+  min-height:
+    46px;
+
+  border-radius:
+    11px !important;
+
+  font-size:
+    13px !important;
+
+  letter-spacing:
+    -0.01em;
+
+  box-shadow:
+    0 10px 28px rgba(82, 39, 255, 0.28),
+    0 0 20px rgba(255, 159, 252, 0.05);
+}
+
+
+/* =========================================================
+   14. SUBTLE AI ACCENT LINE
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"]::before {
+  content:
+    '';
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  left:
+    18px;
+
+  right:
+    18px;
+
+  height:
+    1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 159, 252, 0.50),
+      rgba(82, 39, 255, 0.50),
+      transparent
+    );
+
+  opacity:
+    0.75;
+}
+
+
+/* =========================================================
+   15. MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page .fixed.inset-0 {
+    padding:
+      10px !important;
+  }
+
+  .qms-dashboard-page .fixed.inset-0
+    [class*="bg-indigo-"] {
+    margin-top:
+      14px !important;
+
+    padding:
+      15px !important;
+  }
+
+  .qms-dashboard-page .fixed.inset-0
+    .grid {
+    gap:
+      8px !important;
+  }
+
+}
+
+
+/* =========================================================
+   16. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-dashboard-page .fixed.inset-0 * {
+    transition:
+      none !important;
+  }
+
+}
+
+
+/* =========================================================
+   AI RISK / CAPA ICON — VISIBILITY POLISH
+   UI ONLY
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] svg {
+  position: relative;
+
+  width:
+    18px !important;
+
+  height:
+    18px !important;
+
+  flex-shrink:
+    0;
+
+  color:
+    #cbbcff !important;
+
+  stroke:
+    #cbbcff !important;
+
+  stroke-width:
+    2.2 !important;
+
+  filter:
+    drop-shadow(
+      0 0 7px rgba(255, 159, 252, 0.55)
+    );
+
+  opacity:
+    1 !important;
+}
+
+
+/* Give the icon a subtle illuminated badge */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] svg:first-child {
+  padding:
+    5px;
+
+  width:
+    30px !important;
+
+  height:
+    30px !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.25);
+
+  border-radius:
+    9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.32),
+      rgba(255, 159, 252, 0.12)
+    );
+
+  box-shadow:
+    0 5px 18px rgba(82, 39, 255, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  margin-right:
+    9px;
+}
+
+
+/* Make the AI heading and icon align cleanly */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] > div:first-child {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  min-height:
+    32px;
+}
+
+
+/* Don't let the heading styling accidentally affect the icon */
+
+.qms-dashboard-page .fixed.inset-0
+  [class*="bg-indigo-"] > div:first-child svg {
+  color:
+    #d7caff !important;
+
+  opacity:
+    1 !important;
+}
+
+
+/* =========================================================
+   RECORD VIEW — INLINE HEADER FIX
+   Record number + record title on the same line.
+   UI ONLY — NO FUNCTIONALITY CHANGES
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+}
+
+
+/* Record number stays on the left */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  > *:first-child {
+  display: inline-flex !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+
+/* Title moves beside Record # */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  h2,
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  h3 {
+  display: inline-block !important;
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  clear: none !important;
+}
+
+
+/* Keep close button at the far right */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  button {
+  flex-shrink: 0 !important;
+  margin-left: auto !important;
+}
+
+
+/* =========================================================
+   RECORD VIEW — FINAL HEADER ALIGNMENT
+   Badge left + title beside it, vertically centered.
+   UI ONLY — NO FUNCTIONALITY CHANGES
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child {
+  position: relative !important;
+
+  display: block !important;
+
+  min-height:
+    96px !important;
+
+  padding:
+    18px 24px !important;
+}
+
+
+/* Record # badge */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  > *:first-child {
+  position: absolute !important;
+
+  left:
+    24px !important;
+
+  top:
+    27px !important;
+
+  margin:
+    0 !important;
+
+  transform:
+    none !important;
+
+  z-index:
+    2;
+
+  display:
+    inline-flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  white-space:
+    nowrap !important;
+}
+
+
+/* Record title — beside the badge */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  h2,
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  h3 {
+  position: absolute !important;
+
+  left:
+    145px !important;
+
+  top:
+    42px !important;
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  transform:
+    none !important;
+
+  display:
+    block !important;
+
+  width:
+    calc(100% - 205px) !important;
+
+  line-height:
+    1.25 !important;
+
+  white-space:
+    nowrap;
+
+  overflow:
+    hidden;
+
+  text-overflow:
+    ellipsis;
+
+  text-align:
+    left;
+
+  z-index:
+    2;
+}
+
+
+/* Keep close button in its original top-right position */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  button {
+  position: absolute !important;
+
+  right:
+    18px !important;
+
+  top:
+    30px !important;
+
+  margin:
+    0 !important;
+
+  transform:
+    none !important;
+
+  z-index:
+    3;
+}
+
+
+/* Prevent hover rules from moving the close button */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  button:hover {
+  transform:
+    none !important;
+}
+
+
+/* =========================================================
+   RECORD VIEW — RESTORE + CORRECT TITLE POSITION
+   Keep Record # badge and title together.
+   UI ONLY — NO FUNCTIONALITY CHANGES
+   ========================================================= */
+
+/* Keep the modal header as the positioning container */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child {
+  position: relative !important;
+  display: block !important;
+  min-height: 96px !important;
+  padding: 18px 24px !important;
+}
+
+
+/* ---------------------------------------------------------
+   RECORD # BADGE
+   Keep it on the left.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  > *:first-child {
+  position: absolute !important;
+
+  left: 24px !important;
+  top: 27px !important;
+
+  display: inline-flex !important;
+
+  margin: 0 !important;
+  transform: none !important;
+
+  z-index: 5 !important;
+}
+
+
+/* ---------------------------------------------------------
+   RECORD TITLE
+   Restore it and place it immediately to the right
+   of the Record # badge, slightly lower / centered.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  h2,
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  h3 {
+  position: absolute !important;
+
+  display: block !important;
+
+  left: 205px !important;
+  top: 42px !important;
+
+  width: calc(100% - 275px) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  transform: none !important;
+
+  z-index: 5 !important;
+
+  color: #ffffff !important;
+
+  font-size: 20px !important;
+  font-weight: 750 !important;
+
+  line-height: 1.25 !important;
+
+  text-align: left !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   CLOSE BUTTON
+   Leave it at the top-right.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  button {
+  position: absolute !important;
+
+  right: 18px !important;
+  top: 30px !important;
+
+  z-index: 10 !important;
+
+  margin: 0 !important;
+}
+
+
+/* Don't let hover positioning move anything */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  button:hover {
+  transform: none !important;
+}
+
+
+/* =========================================================
+   FINAL RECORD HEADER POSITION
+   Keep Record # badge and title visible.
+   Move ONLY the title right + slightly down.
+   ========================================================= */
+
+/* Keep the modal header in its existing visual structure */
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child {
+  position: relative !important;
+  display: block !important;
+}
+
+
+/* Keep Record # exactly on the left */
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  > *:first-child {
+  position: absolute !important;
+
+  left: 24px !important;
+  top: 27px !important;
+
+  margin: 0 !important;
+  transform: none !important;
+
+  z-index: 5 !important;
+}
+
+
+/* ---------------------------------------------------------
+   RECORD TITLE
+   The only thing being changed:
+   - stays visible
+   - moves right of the badge
+   - sits around the badge's vertical centre
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child h2,
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child h3 {
+  position: absolute !important;
+
+  left: 145px !important;
+  top: 45px !important;
+
+  display: block !important;
+
+  width: calc(100% - 205px) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  transform: none !important;
+
+  z-index: 6 !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  color: #ffffff !important;
+
+  font-size: 20px !important;
+  font-weight: 750 !important;
+
+  line-height: 1.25 !important;
+
+  text-align: left !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+
+/* Keep close button untouched at the right */
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child
+  button {
+  position: absolute !important;
+
+  right: 18px !important;
+  top: 30px !important;
+
+  margin: 0 !important;
+
+  z-index: 10 !important;
+}
+
+
+/* =========================================================
+   AIVOA.AI QMS — FINAL RECORD HEADER RESTORATION
+   =========================================================
+   QMS Ledger > View Record
+
+   PURPOSE:
+   - Restore the Record title if previous CSS displaced it.
+   - Keep Record # badge on the left.
+   - Place the title immediately to the RIGHT of the badge.
+   - Vertically center the title against the badge.
+   - Keep the close button at the far right.
+   - Do NOT alter the modal content below the header.
+
+   IMPORTANT:
+   This intentionally overrides the previous experimental
+   absolute-positioning rules rather than adding another
+   layer of positioning on top of them.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. RESTORE THE MODAL HEADER'S NORMAL LAYOUT
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 > div > div:first-child {
+  position: relative !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  min-height: 96px !important;
+
+  padding:
+    18px 24px !important;
+
+  gap:
+    0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   2. RESTORE THE HEADER'S MAIN CONTENT GROUP
+   The group containing Record # + title should behave as
+   one horizontal header row.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2),
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) {
+
+  position: static !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  flex: 1 1 auto !important;
+
+  min-width: 0 !important;
+
+  width: auto !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  transform: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. RECORD # BADGE
+   Keep its existing visual design.
+   Remove only the accidental positioning overrides.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2) > *:first-child,
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) > *:first-child {
+
+  position: static !important;
+
+  flex-shrink: 0 !important;
+
+  display: inline-flex !important;
+
+  align-items: center !important;
+
+  margin: 0 !important;
+
+  transform: none !important;
+
+  z-index: auto !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. THE ACTUAL RECORD TITLE
+   This is the ONLY meaningful positional change.
+
+   It sits AFTER the Record # badge and is vertically
+   centered with it.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2) h2,
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) h3 {
+
+  position: static !important;
+
+  display: block !important;
+
+  flex: 0 1 auto !important;
+
+  min-width: 0 !important;
+
+  width: auto !important;
+
+  margin:
+    3px 0 0 14px !important;
+
+  padding:
+    0 !important;
+
+  transform: none !important;
+
+  clear: none !important;
+
+  visibility: visible !important;
+
+  opacity: 1 !important;
+
+  z-index: auto !important;
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    20px !important;
+
+  font-weight:
+    750 !important;
+
+  line-height:
+    1.25 !important;
+
+  text-align:
+    left !important;
+
+  white-space:
+    nowrap !important;
+
+  overflow:
+    hidden !important;
+
+  text-overflow:
+    ellipsis !important;
+
+  text-shadow:
+    0 0 18px rgba(255, 159, 252, 0.14);
+}
+
+
+/* ---------------------------------------------------------
+   5. CLOSE BUTTON
+   Keep it on the far right.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > button {
+
+  position: static !important;
+
+  flex-shrink: 0 !important;
+
+  margin:
+    0 0 0 16px !important;
+
+  transform:
+    none !important;
+
+  z-index:
+    auto !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. DO NOT ALLOW THE CLOSE BUTTON HOVER RULE TO
+      CHANGE ITS POSITION.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > button:hover {
+
+  transform:
+    none !important;
+}
+
+
+/* ---------------------------------------------------------
+   7. DESKTOP TITLE ALIGNMENT
+   Tiny downward adjustment only.
+   --------------------------------------------------------- */
+
+@media (min-width: 769px) {
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h2) h2,
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h3) h3 {
+
+    transform:
+      translateY(3px) !important;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   8. MOBILE
+   Allow the title to wrap instead of breaking the modal.
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child {
+
+    min-height:
+      86px !important;
+
+    padding:
+      16px !important;
+  }
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h2),
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h3) {
+
+    flex-wrap:
+      nowrap !important;
+  }
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h2) h2,
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h3) h3 {
+
+    font-size:
+      16px !important;
+
+    white-space:
+      normal !important;
+
+    margin-left:
+      10px !important;
+  }
+
+}
+
+
+/* =========================================================
+   AIVOA.AI QMS — RECORD HEADER FINAL WIDTH CONTROL
+   =========================================================
+   PURPOSE:
+   - Keep Record # badge in its current position.
+   - Reduce record title size.
+   - Prevent title from extending outside the modal.
+   - Prevent horizontal scrolling.
+   - Keep the title on one line on desktop.
+   - Allow controlled wrapping on smaller screens.
+   - Keep the Close button visible.
+   
+   DO NOT change modal content/layout below the header.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. PREVENT HORIZONTAL OVERFLOW INSIDE THE RECORD MODAL
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 {
+  overflow-x: hidden !important;
+}
+
+
+/* ---------------------------------------------------------
+   2. RECORD MODAL CONTAINER
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0 > div {
+  max-width: calc(100vw - 32px) !important;
+
+  overflow-x: hidden !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. RECORD HEADER
+   Keep the current horizontal layout.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child {
+
+  width: 100% !important;
+
+  max-width: 100% !important;
+
+  box-sizing: border-box !important;
+
+  overflow: hidden !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. HEADER CONTENT GROUP
+   Badge + title must share the available width.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2),
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) {
+
+  flex:
+    1 1 auto !important;
+
+  min-width:
+    0 !important;
+
+  max-width:
+    100% !important;
+
+  overflow:
+    hidden !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. RECORD TITLE
+   Smaller + contained.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2) h2,
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) h3 {
+
+  flex:
+    1 1 auto !important;
+
+  min-width:
+    0 !important;
+
+  max-width:
+    100% !important;
+
+  width:
+    auto !important;
+
+  margin:
+    3px 0 0 14px !important;
+
+  padding:
+    0 !important;
+
+  font-size:
+    16px !important;
+
+  line-height:
+    1.25 !important;
+
+  font-weight:
+    700 !important;
+
+  white-space:
+    nowrap !important;
+
+  overflow:
+    hidden !important;
+
+  text-overflow:
+    ellipsis !important;
+
+  word-break:
+    normal !important;
+
+  overflow-wrap:
+    normal !important;
+
+  transform:
+    translateY(3px) !important;
+
+  box-sizing:
+    border-box !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. CLOSE BUTTON
+   Never allow it to be pushed outside the header.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > button {
+
+  flex:
+    0 0 auto !important;
+
+  flex-shrink:
+    0 !important;
+
+  margin-left:
+    14px !important;
+
+  position:
+    static !important;
+}
+
+
+/* ---------------------------------------------------------
+   7. HEADER FLEX CHILDREN MUST BE ALLOWED TO SHRINK
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > * {
+
+  min-width:
+    0 !important;
+
+  box-sizing:
+    border-box !important;
+}
+
+
+/* ---------------------------------------------------------
+   8. DESKTOP
+   Keep the title cleanly on one line.
+   --------------------------------------------------------- */
+
+@media (min-width: 769px) {
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h2) h2,
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h3) h3 {
+
+    font-size:
+      16px !important;
+
+    white-space:
+      nowrap !important;
+
+    overflow:
+      hidden !important;
+
+    text-overflow:
+      ellipsis !important;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   9. TABLET / MOBILE
+   Give the title permission to use two lines when needed.
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h2) h2,
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h3) h3 {
+
+    font-size:
+      15px !important;
+
+    white-space:
+      normal !important;
+
+    display:
+      -webkit-box !important;
+
+    -webkit-box-orient:
+      vertical !important;
+
+    -webkit-line-clamp:
+      2 !important;
+
+    overflow:
+      hidden !important;
+
+    text-overflow:
+      ellipsis !important;
+
+    line-height:
+      1.25 !important;
+
+    margin-left:
+      10px !important;
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   10. FINAL SAFETY:
+       No horizontal scrollbar anywhere in the record modal.
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div {
+
+  overflow-x:
+    hidden !important;
+}
+
+
+/* =========================================================
+   AIVOA.AI QMS — RESTORE RECORD CLOSE BUTTON
+   =========================================================
+   IMPORTANT:
+   - Restore X button to the original top-right position.
+   - Keep it clickable.
+   - Do NOT change its React/onClick functionality.
+   - Keep Record # badge unchanged.
+   - Keep record title visible.
+   - Keep all modal content unchanged.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. HEADER IS THE POSITIONING REFERENCE
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child {
+
+  position:
+    relative !important;
+
+  display:
+    block !important;
+
+  box-sizing:
+    border-box !important;
+
+  overflow:
+    hidden !important;
+}
+
+
+/* ---------------------------------------------------------
+   2. RESTORE THE CLOSE X TO THE TOP-RIGHT CORNER
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > button {
+
+  position:
+    absolute !important;
+
+  right:
+    18px !important;
+
+  top:
+    30px !important;
+
+  left:
+    auto !important;
+
+  bottom:
+    auto !important;
+
+  margin:
+    0 !important;
+
+  width:
+    36px !important;
+
+  height:
+    36px !important;
+
+  min-width:
+    36px !important;
+
+  min-height:
+    36px !important;
+
+  display:
+    inline-flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  flex:
+    none !important;
+
+  z-index:
+    100 !important;
+
+  pointer-events:
+    auto !important;
+
+  cursor:
+    pointer !important;
+
+  transform:
+    none !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. MAKE SURE HOVER DOES NOT MOVE THE BUTTON
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > button:hover {
+
+  position:
+    absolute !important;
+
+  right:
+    18px !important;
+
+  top:
+    30px !important;
+
+  transform:
+    none !important;
+
+  z-index:
+    100 !important;
+
+  pointer-events:
+    auto !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. KEEP THE TITLE AWAY FROM THE CLOSE BUTTON
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2) h2,
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) h3 {
+
+  max-width:
+    calc(100% - 275px) !important;
+
+  padding-right:
+    8px !important;
+
+  box-sizing:
+    border-box !important;
+
+  z-index:
+    5 !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. ENSURE THE CLOSE BUTTON IS ABOVE THE TITLE
+   --------------------------------------------------------- */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > button svg {
+
+  position:
+    relative !important;
+
+  z-index:
+    101 !important;
+
+  pointer-events:
+    none !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. MOBILE — KEEP IT IN THE CORNER
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > button {
+
+    right:
+      12px !important;
+
+    top:
+      20px !important;
+
+    width:
+      34px !important;
+
+    height:
+      34px !important;
+  }
+
+}
+
+
+/* =========================================================
+   RECORD TITLE — SHOW COMPLETE HEADING
+   =========================================================
+   Keep the current position, size, Record badge and
+   close button exactly as they are.
+
+   ONLY change:
+   - Remove the "..." truncation.
+   - Allow the complete heading to wrap naturally.
+   - Prevent horizontal overflow.
+   ========================================================= */
+
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h2) h2,
+.qms-dashboard-page .fixed.inset-0
+  > div > div:first-child
+  > div:has(h3) h3 {
+
+  width:
+    auto !important;
+
+  max-width:
+    calc(100% - 275px) !important;
+
+  white-space:
+    normal !important;
+
+  overflow:
+    visible !important;
+
+  text-overflow:
+    clip !important;
+
+  word-break:
+    normal !important;
+
+  overflow-wrap:
+    anywhere !important;
+
+  display:
+    block !important;
+
+  visibility:
+    visible !important;
+
+  opacity:
+    1 !important;
+}
+
+
+/* Make sure the modal itself never develops
+   a horizontal scrollbar */
+
+.qms-dashboard-page .fixed.inset-0
+  > div {
+
+  overflow-x:
+    hidden !important;
+}
+
+
+/* Desktop: allow the complete title to occupy
+   multiple lines if necessary */
+
+@media (min-width: 769px) {
+
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h2) h2,
+  .qms-dashboard-page .fixed.inset-0
+    > div > div:first-child
+    > div:has(h3) h3 {
+
+    white-space:
+      normal !important;
+
+    overflow:
+      visible !important;
+
+    text-overflow:
+      clip !important;
+
+    line-height:
+      1.25 !important;
+  }
+
+}
+
+
+/* =========================================================
+   AIVOA.AI QMS
+   AI QA RISK & CAPA ANALYTICS DASHBOARD
+   VISUAL REDESIGN
+   =========================================================
+   
+   UI ONLY.
+   - Existing icons preserved.
+   - Existing data preserved.
+   - Existing calculations preserved.
+   - Existing API / Redux behaviour preserved.
+   - Existing navigation preserved.
+   
+   Visual language:
+   Deep navy + purple + pink glass QMS interface.
+   ========================================================= */
+
+
+/* =========================================================
+   1. DASHBOARD PAGE — DEEPER BACKGROUND
+   ========================================================= */
+
+.qms-dashboard-page {
+  position: relative !important;
+
+  background:
+    radial-gradient(
+      circle at 18% 12%,
+      rgba(82, 39, 255, 0.16),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(255, 159, 252, 0.09),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 52% 75%,
+      rgba(82, 39, 255, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #080614 0%,
+      #0d0920 48%,
+      #070611 100%
+    ) !important;
+
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  min-height:
+    100%;
+
+  overflow-x:
+    hidden;
+}
+
+
+/* Subtle atmospheric layer */
+
+.qms-dashboard-page::before {
+  content:
+    '';
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(82, 39, 255, 0.035) 50%,
+      rgba(255, 159, 252, 0.025) 72%,
+      transparent 90%
+    );
+
+  opacity:
+    0.9;
+}
+
+
+/* =========================================================
+   2. MAIN ANALYTICS CARD
+   ========================================================= */
+
+.qms-dashboard-page > div:first-child {
+  position:
+    relative;
+
+  z-index:
+    1;
+}
+
+
+/* Dashboard root glass panel */
+
+.qms-dashboard-page
+  > .bg-white {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 16, 47, 0.94),
+      rgba(10, 8, 25, 0.97)
+    ) !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.20) !important;
+
+  border-radius:
+    24px !important;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.34),
+    0 0 45px rgba(82, 39, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+
+  overflow:
+    hidden !important;
+}
+
+
+/* =========================================================
+   3. DASHBOARD HEADER
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  > div:first-child {
+
+  padding:
+    28px 30px 25px !important;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(82, 39, 255, 0.14),
+      rgba(82, 39, 255, 0.035) 52%,
+      rgba(255, 159, 252, 0.07)
+    ) !important;
+
+  border-bottom:
+    1px solid rgba(255, 159, 252, 0.16) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 12px 32px rgba(82, 39, 255, 0.055);
+}
+
+
+/* Dashboard title */
+
+.qms-dashboard-page
+  > .bg-white
+  h2,
+.qms-dashboard-page
+  > .bg-white
+  h1 {
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    24px !important;
+
+  font-weight:
+    800 !important;
+
+  letter-spacing:
+    -0.035em;
+
+  line-height:
+    1.25 !important;
+
+  text-shadow:
+    0 0 24px rgba(255, 159, 252, 0.12);
+}
+
+
+/* Subtitle */
+
+.qms-dashboard-page
+  > .bg-white
+  > div:first-child
+  p {
+
+  color:
+    rgba(255, 255, 255, 0.52) !important;
+
+  font-size:
+    13px !important;
+
+  line-height:
+    1.55;
+
+  margin-top:
+    5px;
+}
+
+
+/* =========================================================
+   4. KPI SECTION — MORE BREATHING ROOM
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid {
+
+  gap:
+    18px !important;
+}
+
+
+/* =========================================================
+   5. KPI CARDS
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div {
+
+  min-height:
+    100px;
+
+  padding:
+    18px 20px !important;
+
+  border-radius:
+    15px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(82, 39, 255, 0.045)
+    ) !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.09) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 10px 28px rgba(0, 0, 0, 0.14) !important;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(255, 159, 252, 0.22) !important;
+
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.22),
+    0 0 24px rgba(82, 39, 255, 0.08) !important;
+}
+
+
+/* =========================================================
+   6. KPI LABELS
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  .text-xs {
+
+  font-size:
+    11px !important;
+
+  font-weight:
+    750 !important;
+
+  letter-spacing:
+    0.055em;
+
+  text-transform:
+    uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.52) !important;
+}
+
+
+/* =========================================================
+   7. KPI NUMBERS
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  .text-2xl,
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  .text-3xl {
+
+  color:
+    #ffffff !important;
+
+  font-size:
+    29px !important;
+
+  font-weight:
+    800 !important;
+
+  line-height:
+    1.15 !important;
+
+  letter-spacing:
+    -0.035em;
+
+  margin-top:
+    4px;
+}
+
+
+/* KPI supporting text */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  .text-sm {
+
+  color:
+    rgba(255, 255, 255, 0.60) !important;
+
+  font-size:
+    11px !important;
+
+  margin-top:
+    5px;
+}
+
+
+/* =========================================================
+   8. ANALYTICS LOWER SECTION
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  + div {
+
+  border-radius:
+    17px !important;
+}
+
+
+/* =========================================================
+   9. RISK DISTRIBUTION CARD
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"],
+.qms-dashboard-page
+  [class*="bg-indigo-50"] {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(82, 39, 255, 0.055)
+    ) !important;
+
+  border-color:
+    rgba(255, 255, 255, 0.095) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   10. LOWER CARD HEADINGS
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"] h3,
+.qms-dashboard-page
+  [class*="bg-indigo-50"] h3,
+.qms-dashboard-page
+  [class*="bg-slate-50"] .font-bold,
+.qms-dashboard-page
+  [class*="bg-indigo-50"] .font-bold {
+
+  color:
+    rgba(255, 255, 255, 0.90) !important;
+
+  font-size:
+    15px !important;
+
+  font-weight:
+    750 !important;
+}
+
+
+/* =========================================================
+   11. LOWER CARD BODY TEXT
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"] p,
+.qms-dashboard-page
+  [class*="bg-indigo-50"] p,
+.qms-dashboard-page
+  [class*="bg-slate-50"] li,
+.qms-dashboard-page
+  [class*="bg-indigo-50"] li {
+
+  color:
+    rgba(255, 255, 255, 0.68) !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.55;
+}
+
+
+/* =========================================================
+   12. RISK DISTRIBUTION LABELS
+   ========================================================= */
+
+.qms-dashboard-page
+  .text-red-600,
+.qms-dashboard-page
+  .text-rose-600 {
+
+  color:
+    #ff3d72 !important;
+}
+
+.qms-dashboard-page
+  .text-orange-600 {
+
+  color:
+    #ff9d19 !important;
+}
+
+.qms-dashboard-page
+  .text-indigo-600 {
+
+  color:
+    #8c76ff !important;
+}
+
+
+/* =========================================================
+   13. PROGRESS TRACKS
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-200"],
+.qms-dashboard-page
+  [class*="bg-gray-200"] {
+
+  background:
+    rgba(255, 255, 255, 0.12) !important;
+
+  border-radius:
+    999px !important;
+}
+
+
+/* =========================================================
+   14. COMPLIANCE PROTOCOL CARD
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-indigo-50"] {
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(82, 39, 255, 0.115),
+      rgba(255, 159, 252, 0.045)
+    ) !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.16) !important;
+}
+
+
+/* Compliance atmospheric glow */
+
+.qms-dashboard-page
+  [class*="bg-indigo-50"]::before {
+
+  content:
+    '';
+
+  position:
+    absolute;
+
+  top:
+    -90px;
+
+  right:
+    -90px;
+
+  width:
+    220px;
+
+  height:
+    220px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 159, 252, 0.11),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   15. COMPLIANCE BULLETS
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-indigo-50"] li {
+
+  margin-bottom:
+    5px !important;
+
+  padding-left:
+    2px;
+}
+
+
+/* =========================================================
+   16. ICONS — PRESERVE EXISTING ICONS
+   ========================================================= */
+
+/*
+   We deliberately do NOT replace or hide icons.
+   Only their surrounding text is styled.
+*/
+
+.qms-dashboard-page svg {
+
+  flex-shrink:
+    0;
+}
+
+
+/* Keep existing icon colours readable */
+
+.qms-dashboard-page
+  .text-indigo-600 svg,
+.qms-dashboard-page
+  svg.text-indigo-600 {
+
+  filter:
+    drop-shadow(
+      0 0 5px rgba(82, 39, 255, 0.28)
+    );
+}
+
+
+/* =========================================================
+   17. SECTION DIVIDERS
+   ========================================================= */
+
+.qms-dashboard-page
+  hr {
+
+  border-color:
+    rgba(255, 159, 252, 0.12) !important;
+}
+
+
+/* =========================================================
+   18. MORE SPACE AROUND DASHBOARD CONTENT
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  > div:not(:first-child) {
+
+  padding-top:
+    22px;
+}
+
+
+/* =========================================================
+   19. TYPOGRAPHY GENERAL
+   ========================================================= */
+
+.qms-dashboard-page
+  .text-slate-500,
+.qms-dashboard-page
+  .text-slate-600 {
+
+  color:
+    rgba(255, 255, 255, 0.48) !important;
+}
+
+.qms-dashboard-page
+  .text-slate-700,
+.qms-dashboard-page
+  .text-slate-800,
+.qms-dashboard-page
+  .text-slate-900 {
+
+  color:
+    rgba(255, 255, 255, 0.82) !important;
+}
+
+
+/* =========================================================
+   20. SUBTLE CARD ACCENT
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white::after {
+
+  content:
+    '';
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  left:
+    12%;
+
+  right:
+    12%;
+
+  height:
+    1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(82, 39, 255, 0.45),
+      rgba(255, 159, 252, 0.35),
+      transparent
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   21. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .qms-dashboard-page
+    > .bg-white
+    h2,
+  .qms-dashboard-page
+    > .bg-white
+    h1 {
+
+    font-size:
+      21px !important;
+  }
+
+  .qms-dashboard-page
+    > .bg-white
+    .grid {
+
+    gap:
+      14px !important;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page
+    > .bg-white {
+
+    border-radius:
+      18px !important;
+  }
+
+  .qms-dashboard-page
+    > .bg-white
+    > div:first-child {
+
+    padding:
+      21px 18px !important;
+  }
+
+  .qms-dashboard-page
+    > .bg-white
+    .grid {
+
+    gap:
+      12px !important;
+  }
+
+  .qms-dashboard-page
+    > .bg-white
+    .grid
+    > div {
+
+    min-height:
+      90px;
+
+    padding:
+      15px !important;
+  }
+
+}
+
+
+/* =========================================================
+   22. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-dashboard-page
+    * {
+
+    transition:
+      none !important;
+  }
+
+}
+
+
+/* =========================================================
+   AIVOA.AI QMS
+   AI QA RISK & CAPA ANALYTICS
+   ANIMATED GLASS / HUD ENHANCEMENT
+   =========================================================
+   
+   UI ONLY.
+   Existing:
+   - icons
+   - data
+   - calculations
+   - Redux
+   - APIs
+   - navigation
+   
+   are intentionally untouched.
+   ========================================================= */
+
+
+/* =========================================================
+   1. LIVING BACKGROUND
+   ========================================================= */
+
+.qms-dashboard-page {
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(82, 39, 255, 0.19),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 18%,
+      rgba(255, 159, 252, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(82, 39, 255, 0.12),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #070510 0%,
+      #0d0820 45%,
+      #080612 100%
+    ) !important;
+
+  background-size:
+    140% 140% !important;
+
+  animation:
+    qms-dashboard-bg-drift 18s ease-in-out infinite alternate !important;
+}
+
+
+@keyframes qms-dashboard-bg-drift {
+
+  0% {
+    background-position:
+      0% 20%;
+  }
+
+  50% {
+    background-position:
+      65% 45%;
+  }
+
+  100% {
+    background-position:
+      100% 75%;
+  }
+
+}
+
+
+/* =========================================================
+   2. MAIN DASHBOARD WINDOW
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white {
+
+  position:
+    relative !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 16, 49, 0.94),
+      rgba(8, 7, 23, 0.97)
+    ) !important;
+
+  border:
+    1px solid rgba(255, 159, 252, 0.24) !important;
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.40),
+    0 0 55px rgba(82, 39, 255, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.065) !important;
+
+  animation:
+    qms-dashboard-breathe 7s ease-in-out infinite !important;
+}
+
+
+@keyframes qms-dashboard-breathe {
+
+  0%,
+  100% {
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.40),
+      0 0 45px rgba(82, 39, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  50% {
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.43),
+      0 0 65px rgba(82, 39, 255, 0.14),
+      0 0 24px rgba(255, 159, 252, 0.035),
+      inset 0 1px 0 rgba(255, 255, 255, 0.075);
+  }
+
+}
+
+
+/* =========================================================
+   3. DASHBOARD HEADER — ANIMATED LIGHT BAND
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  > div:first-child {
+
+  position:
+    relative !important;
+
+  overflow:
+    hidden !important;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(82, 39, 255, 0.16),
+      rgba(19, 13, 42, 0.82),
+      rgba(255, 159, 252, 0.09)
+    ) !important;
+}
+
+
+.qms-dashboard-page
+  > .bg-white
+  > div:first-child::after {
+
+  content:
+    '';
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  left:
+    -35%;
+
+  width:
+    35%;
+
+  height:
+    1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 159, 252, 0.75),
+      rgba(255, 255, 255, 0.75),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(255, 159, 252, 0.45);
+
+  animation:
+    qms-header-scan 7s ease-in-out infinite;
+
+  pointer-events:
+    none;
+}
+
+
+@keyframes qms-header-scan {
+
+  0% {
+    left:
+      -35%;
+  }
+
+  55%,
+  100% {
+    left:
+      110%;
+  }
+
+}
+
+
+/* =========================================================
+   4. DASHBOARD TITLE GLOW
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  h2,
+.qms-dashboard-page
+  > .bg-white
+  h1 {
+
+  animation:
+    qms-title-glow 5s ease-in-out infinite alternate !important;
+}
+
+
+@keyframes qms-title-glow {
+
+  from {
+    text-shadow:
+      0 0 12px rgba(82, 39, 255, 0.10);
+  }
+
+  to {
+    text-shadow:
+      0 0 24px rgba(255, 159, 252, 0.18),
+      0 0 42px rgba(82, 39, 255, 0.10);
+  }
+
+}
+
+
+/* =========================================================
+   5. KPI CARDS — INDIVIDUAL GLASS WINDOWS
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div {
+
+  position:
+    relative !important;
+
+  overflow:
+    hidden !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(82, 39, 255, 0.055)
+    ) !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.105) !important;
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease !important;
+}
+
+
+/* Moving light inside each window */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div::before {
+
+  content:
+    '';
+
+  position:
+    absolute;
+
+  top:
+    -80px;
+
+  left:
+    -100px;
+
+  width:
+    180px;
+
+  height:
+    180px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 159, 252, 0.10),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+
+  animation:
+    qms-card-atmosphere 8s ease-in-out infinite alternate;
+}
+
+
+@keyframes qms-card-atmosphere {
+
+  from {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  to {
+    transform:
+      translate3d(90px, 35px, 0);
+  }
+
+}
+
+
+/* Hover */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div:hover {
+
+  transform:
+    translateY(-4px) !important;
+
+  border-color:
+    rgba(255, 159, 252, 0.30) !important;
+
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.28),
+    0 0 28px rgba(82, 39, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* =========================================================
+   6. KPI NUMBERS — STRONGER VISIBILITY
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  .text-2xl,
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div
+  .text-3xl {
+
+  position:
+    relative;
+
+  z-index:
+    2;
+
+  color:
+    #ffffff !important;
+
+  text-shadow:
+    0 0 18px rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   7. CRITICAL RISK WINDOW
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div:nth-child(2) {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(110, 15, 58, 0.22),
+      rgba(28, 10, 37, 0.72)
+    ) !important;
+
+  border-color:
+    rgba(255, 61, 114, 0.28) !important;
+
+  animation:
+    qms-critical-pulse 4.5s ease-in-out infinite;
+}
+
+
+@keyframes qms-critical-pulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.18),
+      0 0 0 rgba(255, 61, 114, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 12px 34px rgba(0, 0, 0, 0.22),
+      0 0 24px rgba(255, 61, 114, 0.08);
+  }
+
+}
+
+
+/* =========================================================
+   8. CLOSED / RESOLVED WINDOW
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div:nth-child(4) {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 70, 61, 0.17),
+      rgba(10, 25, 30, 0.74)
+    ) !important;
+
+  border-color:
+    rgba(52, 211, 153, 0.20) !important;
+}
+
+
+/* =========================================================
+   9. LOWER ANALYTICS WINDOWS
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"],
+.qms-dashboard-page
+  [class*="bg-indigo-50"] {
+
+  position:
+    relative !important;
+
+  overflow:
+    hidden !important;
+
+  border-radius:
+    18px !important;
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease !important;
+}
+
+
+.qms-dashboard-page
+  [class*="bg-slate-50"]:hover,
+.qms-dashboard-page
+  [class*="bg-indigo-50"]:hover {
+
+  transform:
+    translateY(-3px);
+
+  border-color:
+    rgba(255, 159, 252, 0.25) !important;
+
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.22),
+    0 0 25px rgba(82, 39, 255, 0.08);
+}
+
+
+/* =========================================================
+   10. MEDIUM / LOW SEVERITY — FIX VISIBILITY
+   ========================================================= */
+
+/* The medium/low label must remain clearly readable
+   against the dark dashboard background. */
+
+.qms-dashboard-page
+  .text-indigo-600 {
+
+  color:
+    #8f7cff !important;
+
+  text-shadow:
+    0 0 10px rgba(143, 124, 255, 0.20) !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+/* Any medium/low severity text inside analytics */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"]
+  .text-indigo-600,
+.qms-dashboard-page
+  [class*="bg-indigo-50"]
+  .text-indigo-600 {
+
+  color:
+    #a394ff !important;
+}
+
+
+/* =========================================================
+   11. SEVERITY BARS — MORE DEPTH
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-200"],
+.qms-dashboard-page
+  [class*="bg-gray-200"] {
+
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.35),
+    0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+
+/* Give progress fills a subtle glow without changing
+   their actual colours. */
+
+.qms-dashboard-page
+  .bg-red-500,
+.qms-dashboard-page
+  .bg-rose-500 {
+
+  box-shadow:
+    0 0 12px rgba(255, 61, 114, 0.22);
+}
+
+
+.qms-dashboard-page
+  .bg-orange-500 {
+
+  box-shadow:
+    0 0 12px rgba(255, 157, 25, 0.20);
+}
+
+
+.qms-dashboard-page
+  .bg-indigo-500 {
+
+  box-shadow:
+    0 0 12px rgba(99, 82, 255, 0.25);
+}
+
+
+/* =========================================================
+   12. COMPLIANCE WINDOW
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-indigo-50"] {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(73, 48, 156, 0.19),
+      rgba(17, 12, 39, 0.76)
+    ) !important;
+
+  border:
+    1px solid rgba(139, 118, 255, 0.24) !important;
+}
+
+
+/* Moving glow in compliance window */
+
+.qms-dashboard-page
+  [class*="bg-indigo-50"]::after {
+
+  content:
+    '';
+
+  position:
+    absolute;
+
+  width:
+    170px;
+
+  height:
+    170px;
+
+  right:
+    -80px;
+
+  bottom:
+    -100px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 159, 252, 0.11),
+      transparent 68%
+    );
+
+  pointer-events:
+    none;
+
+  animation:
+    qms-compliance-glow 7s ease-in-out infinite alternate;
+}
+
+
+@keyframes qms-compliance-glow {
+
+  from {
+    transform:
+      scale(0.85);
+    opacity:
+      0.45;
+  }
+
+  to {
+    transform:
+      scale(1.15);
+    opacity:
+      0.90;
+  }
+
+}
+
+
+/* =========================================================
+   13. LOWER CARD HEADINGS
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"] h3,
+.qms-dashboard-page
+  [class*="bg-indigo-50"] h3 {
+
+  color:
+    #f4efff !important;
+
+  font-size:
+    15px !important;
+
+  font-weight:
+    800 !important;
+
+  letter-spacing:
+    -0.015em;
+
+  text-shadow:
+    0 0 14px rgba(255, 159, 252, 0.10);
+}
+
+
+/* =========================================================
+   14. COMPLIANCE / ANALYTICS BODY TEXT
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"] li,
+.qms-dashboard-page
+  [class*="bg-indigo-50"] li {
+
+  color:
+    rgba(255, 255, 255, 0.72) !important;
+
+  line-height:
+    1.55 !important;
+}
+
+
+/* =========================================================
+   15. ICON VISIBILITY
+   DO NOT REPLACE ICONS — ONLY GIVE THEM A LITTLE DEPTH
+   ========================================================= */
+
+.qms-dashboard-page svg {
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(82, 39, 255, 0.20)
+    );
+}
+
+
+/* =========================================================
+   16. DASHBOARD CONTENT SPACING
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid {
+
+  row-gap:
+    20px !important;
+
+  column-gap:
+    20px !important;
+}
+
+
+/* =========================================================
+   17. SUBTLE FLOATING EFFECT
+   ========================================================= */
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div:nth-child(1) {
+
+  animation:
+    qms-window-float-a 6s ease-in-out infinite;
+}
+
+
+.qms-dashboard-page
+  > .bg-white
+  .grid
+  > div:nth-child(3) {
+
+  animation:
+    qms-window-float-b 7s ease-in-out infinite;
+}
+
+
+@keyframes qms-window-float-a {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-2px);
+  }
+
+}
+
+
+@keyframes qms-window-float-b {
+
+  0%,
+  100% {
+    transform:
+      translateY(-1px);
+  }
+
+  50% {
+    transform:
+      translateY(2px);
+  }
+
+}
+
+
+/* =========================================================
+   18. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .qms-dashboard-page
+    > .bg-white
+    .grid {
+
+    row-gap:
+      14px !important;
+
+    column-gap:
+      14px !important;
+  }
+
+  .qms-dashboard-page
+    > .bg-white
+    h2,
+  .qms-dashboard-page
+    > .bg-white
+    h1 {
+
+    font-size:
+      21px !important;
+  }
+
+}
+
+
+/* =========================================================
+   19. ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qms-dashboard-page,
+  .qms-dashboard-page *,
+  .qms-dashboard-page::before,
+  .qms-dashboard-page::after {
+
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+}
+
+
+/* =========================================================
+   MEDIUM / LOW SEVERITY — VISIBILITY COLOR
+   ========================================================= */
+
+.qms-dashboard-page
+  .text-indigo-600 {
+
+  color:
+    #38d9c8 !important;
+
+  text-shadow:
+    0 0 10px rgba(56, 217, 200, 0.22) !important;
+
+  font-weight:
+    750 !important;
+}
+
+
+/* Ensure the analytics label keeps the same visible color */
+
+.qms-dashboard-page
+  [class*="bg-slate-50"]
+  .text-indigo-600,
+.qms-dashboard-page
+  [class*="bg-indigo-50"]
+  .text-indigo-600 {
+
+  color:
+    #38d9c8 !important;
+
+  text-shadow:
+    0 0 10px rgba(56, 217, 200, 0.22) !important;
+}
+
+
+/* =========================================================
+   MEDIUM / LOW SEVERITY — PALE PISTACHIO
+   ========================================================= */
+
+.qms-dashboard-page
+  [class*="text-indigo-600"] {
+
+  color:
+    #c7f9cc !important;
+
+  text-shadow:
+    0 0 8px rgba(199, 249, 204, 0.18) !important;
+
+  font-weight:
+    750 !important;
+}
+
+
+/* Specifically override the Medium / Low severity label */
+
+.qms-dashboard-page
+  [class*="text-indigo-600"][class*="font"] {
+
+  color:
+    #c7f9cc !important;
+
+  -webkit-text-fill-color:
+    #c7f9cc !important;
+}
+
+
+/* Make the corresponding severity bar a soft pistachio too */
+
+.qms-dashboard-page
+  .bg-indigo-500 {
+
+  background:
+    #b8e6c1 !important;
+
+  box-shadow:
+    0 0 12px rgba(184, 230, 193, 0.22) !important;
+}
+
+
+/* =========================================================
+   MEDIUM / LOW SEVERITY — WHITE-ISH ROYAL BLUE
+   ========================================================= */
+
+.qms-dashboard-page
+  .text-indigo-600,
+.qms-dashboard-page
+  [class*="text-indigo-600"] {
+
+  color:
+    #b8c9ff !important;
+
+  -webkit-text-fill-color:
+    #b8c9ff !important;
+
+  text-shadow:
+    0 0 10px rgba(120, 150, 255, 0.22) !important;
+
+  font-weight:
+    750 !important;
+}
+
+
+/* Medium / Low severity progress bar */
+
+.qms-dashboard-page
+  .bg-indigo-500 {
+
+  background:
+    #718cff !important;
+
+  box-shadow:
+    0 0 12px rgba(113, 140, 255, 0.28) !important;
+}
+
+
+/* =========================================================
+   MEDIUM / LOW SEVERITY — SKY BLUE
+   ========================================================= */
+
+.qms-dashboard-page
+  .text-indigo-600,
+.qms-dashboard-page
+  [class*="text-indigo-600"] {
+
+  color: #67c7ff !important;
+
+  -webkit-text-fill-color: #67c7ff !important;
+
+  text-shadow:
+    0 0 10px rgba(103, 199, 255, 0.28) !important;
+
+  font-weight: 750 !important;
+}
+
+
+/* Medium / Low Severity progress bar */
+
+.qms-dashboard-page
+  .bg-indigo-500 {
+
+  background: #4db8ff !important;
+
+  box-shadow:
+    0 0 14px rgba(77, 184, 255, 0.32) !important;
+}
+
+
+/* =========================================================
+   MEDIUM / LOW SEVERITY
+   SKY BLUE + RECORD COUNT
+   ========================================================= */
+
+/* Heading */
+
+.qms-dashboard-page
+  .text-indigo-600,
+.qms-dashboard-page
+  [class*="text-indigo-600"] {
+
+  color:
+    #63c7ff !important;
+
+  -webkit-text-fill-color:
+    #63c7ff !important;
+
+  font-weight:
+    750 !important;
+
+  text-shadow:
+    0 0 10px rgba(99, 199, 255, 0.28) !important;
+}
+
+
+/* Add the current Medium / Low record count
+   beside the heading, matching Critical and High */
+
+.qms-dashboard-page
+  [class*="text-indigo-600"]::after {
+
+  content:
+    " (1)" !important;
+
+  color:
+    #63c7ff !important;
+
+  -webkit-text-fill-color:
+    #63c7ff !important;
+
+  font-weight:
+    750 !important;
+
+  text-shadow:
+    0 0 8px rgba(99, 199, 255, 0.24);
+}
+
+
+/* Medium / Low severity bar */
+
+.qms-dashboard-page
+  .bg-indigo-500 {
+
+  background:
+    #55bfff !important;
+
+  box-shadow:
+    0 0 14px rgba(85, 191, 255, 0.30) !important;
+}
+

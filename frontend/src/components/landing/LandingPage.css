@@ -1,0 +1,344 @@
+﻿.landing-page {
+  position: relative;
+  width: 100%;
+  min-height: 320vh;
+  overflow: clip;
+  background: #080511;
+  color: #ffffff;
+  overflow-anchor: none;
+}
+
+
+/* =========================================
+   BACKGROUND
+   ========================================= */
+
+.landing-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+.landing-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      transparent 0%,
+      rgba(8, 5, 17, 0.08) 45%,
+      rgba(8, 5, 17, 0.58) 100%
+    );
+}
+
+
+/* =========================================
+   PAGE 1
+   ========================================= */
+
+.landing-hero {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+}
+
+.landing-hero-content {
+  width: min(1100px, 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   PAGE 1 SCROLL HINT
+   ========================================= */
+
+.landing-scroll-hint {
+  position: absolute;
+
+  left: 50%;
+  bottom: 34px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+.landing-scroll-arrow {
+  font-size: 22px;
+  line-height: 1;
+
+  animation:
+    landing-scroll-bounce
+    1.8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes landing-scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   PAGE 2
+   ========================================= */
+
+.landing-workspace-page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-workspace-content {
+  width: min(850px, 100%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 34px;
+
+  padding: 40px 20px;
+}
+
+
+/* =========================================
+   BRAND
+   ========================================= */
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+}
+
+.landing-logo {
+  position: relative;
+
+  width: 54px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  clip-path: polygon(
+    50% 0%,
+    92% 17%,
+    92% 62%,
+    50% 100%,
+    8% 62%,
+    8% 17%
+  );
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff9ffc,
+      #5227ff
+    );
+
+  box-shadow:
+    0 0 35px
+    rgba(255, 159, 252, 0.22);
+}
+
+.landing-logo::before {
+  content: '';
+
+  position: absolute;
+  inset: 2px;
+
+  clip-path: inherit;
+
+  background: #100a22;
+}
+
+.landing-logo span {
+  position: relative;
+  z-index: 1;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+.landing-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.landing-brand-name {
+  color: #ffffff;
+
+  font-size: 21px;
+  font-weight: 750;
+
+  letter-spacing: -0.025em;
+}
+
+.landing-brand-subtitle {
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   WORKSPACE HEADING
+   ========================================= */
+
+.landing-workspace-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 9px;
+
+  text-align: center;
+}
+
+.landing-eyebrow {
+  color: #ff9ffc;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.landing-workspace-heading h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 650;
+
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.landing-workspace-heading p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   GOOEY NAV
+   ========================================= */
+
+.landing-page .gooey-nav-wrapper {
+  width: 100%;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .landing-hero {
+    min-height: 560px;
+    padding: 24px;
+  }
+
+  .landing-scroll-hint {
+    bottom: 24px;
+  }
+
+  .landing-workspace-content {
+    gap: 26px;
+    padding: 30px 16px;
+  }
+
+  .landing-brand-name {
+    font-size: 18px;
+  }
+
+  .landing-brand-subtitle {
+    font-size: 9px;
+  }
+
+  .landing-logo {
+    width: 46px;
+    height: 53px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .landing-scroll-arrow {
+    animation: none;
+  }
+
+}

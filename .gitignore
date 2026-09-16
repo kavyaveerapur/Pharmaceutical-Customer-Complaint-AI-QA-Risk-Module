@@ -1,0 +1,30 @@
+# Python & Virtualenv
+.venv/
+backend/venv/
+**/__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+backend/.env
+.env
+
+# Database & archives
+*.db
+*.sqlite
+*.sqlite3
+backend/complaints.db
+backend.zip
+
+# Node & Frontend
+frontend/node_modules/
+frontend/dist/
+
+# IDE & OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log

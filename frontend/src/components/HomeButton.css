@@ -1,0 +1,117 @@
+﻿.qms-home-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 42px;
+
+  padding: 0 16px;
+
+  border: 1px solid
+    rgba(255, 159, 252, 0.28);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.18),
+      rgba(255, 159, 252, 0.08)
+    );
+
+  color:
+    rgba(255, 255, 255, 0.86);
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 28px
+    rgba(0, 0, 0, 0.24),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.08);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.qms-home-button:hover {
+  color:
+    #ffffff;
+
+  border-color:
+    rgba(255, 159, 252, 0.58);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(82, 39, 255, 0.34),
+      rgba(255, 159, 252, 0.16)
+    );
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 34px
+    rgba(82, 39, 255, 0.24),
+
+    0 0 24px
+    rgba(255, 159, 252, 0.08),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.12);
+}
+
+
+.qms-home-button:active {
+  transform:
+    translateY(0);
+}
+
+
+.qms-home-button:focus-visible {
+  outline:
+    2px solid
+    rgba(255, 159, 252, 0.72);
+
+  outline-offset:
+    3px;
+}
+
+
+@media (max-width: 768px) {
+
+  .qms-home-button {
+    min-height:
+      40px;
+
+    padding:
+      0 13px;
+
+    font-size:
+      12px;
+  }
+
+}
